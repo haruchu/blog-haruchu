@@ -12,8 +12,5 @@ export default {
 };
 
 export const Basic = () => {
-
-  return (
-    <Component/>
-  );
+  return <Component />;
 };
