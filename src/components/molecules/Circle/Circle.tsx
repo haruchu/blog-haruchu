@@ -30,19 +30,9 @@ const createCircle = (times: number[], totalTime: number) => {
   return css`${circleStyle}`;
 }
 
-const toHour = (time: number) => {
-  const hour = Math.floor(time / 60);
-  const min = time % 60;
-
-  return {
-      hour: hour,
-      min: min
-  }
-}
-
 const minToText = (time: number) => {
-  const timeObj = toHour(time);
-  return timeObj.hour ? `${timeObj.hour}時間 ${timeObj.min}分` : `${timeObj.min}分間`;
+  const hourTime = time / 60;
+  return hourTime.toFixed(1);
 }
 
 const Example: React.FC<CircleProps> = ({ studyTimes }) => {
@@ -54,7 +44,7 @@ const Example: React.FC<CircleProps> = ({ studyTimes }) => {
 
   return (
     <Wrapper>
-      <StyledCircle times={studyTimes.map(item => item.time)} totalTime={totalTimeCulc()}>{minToText(totalTimeCulc())}</StyledCircle>
+      <StyledCircle times={studyTimes.map(item => item.time)} totalTime={totalTimeCulc()}>{minToText(totalTimeCulc())}時間</StyledCircle>
       <ul>
         {
           studyTimes.map((item, index) => {
