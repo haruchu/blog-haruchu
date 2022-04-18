@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import COLOR from "../../valiables/Color";
 import React from "react";
 import styled, { css } from 'styled-components';
@@ -31,23 +32,49 @@ const createCircle = (times: number[]) => {
 
 const Example: React.FC<CircleProps> = ({studyTimes}) => {
   return (
-    <>
+    <Wrapper>
       <StyledCircle times={studyTimes.map(item => item.time)}></StyledCircle>
-    </>
+      <ul>
+        {
+          studyTimes.map((item, index) => {
+            return <StyledPrameter colorIndex={index} >{ item.name }</StyledPrameter>
+          })
+        }
+      </ul>
+    </Wrapper>
   );
 };
 export default Example;
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+`
 
 const StyledCircle = styled.div<{ times: number[]; }>`
   display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-right: auto;
-	margin-left: auto;
 	width: 300px;
 	height: 300px;
 	font-size: 26px;
 	font-weight: 700;
 	border-radius: 50%;
   ${(props) => createCircle(props.times)}
+`
+
+const StyledPrameter = styled.li<{ colorIndex: number }>`
+  display: flex;
+  align-items: center;
+  list-style: none;
+  &::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin-right: 8px;
+    ${(props) => `background-color: ${COLOR[props.colorIndex]};`}
+  }
 `
