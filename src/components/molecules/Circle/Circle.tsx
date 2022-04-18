@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 import COLOR from "../../valiables/Color";
 import React, { useCallback } from "react";
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { phone } from "../../valiables/BreakPoint";
 
 interface studyTime {
@@ -12,7 +12,6 @@ interface studyTime {
 export interface CircleProps {
   studyTimes: studyTime[]
 }
-
 
 const createCircle = (times: number[], totalTime: number) => {
   let circleStyle = 'background-image: radial-gradient(#f2f2f2 50%, transparent 51%), conic-gradient(';
@@ -75,6 +74,15 @@ const Wrapper = styled.div`
   padding: 20px;
 `
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
 const StyledCircle = styled.div<{ times: number[], totalTime: number }>`
   display: flex;
 	justify-content: center;
@@ -85,14 +93,13 @@ const StyledCircle = styled.div<{ times: number[], totalTime: number }>`
 	font-weight: 700;
 	border-radius: 50%;
   ${(props) => createCircle(props.times, props.totalTime)}
+  animation: ${fadeIn} .5s ease-in-out;
 
   ${phone`
     width: 200px;
     height: 200px;
     font-size: 14px;
   `}
-
-
 `
 
 const StyledPrameter = styled.li<{ colorIndex: number }>`
@@ -111,5 +118,4 @@ const StyledPrameter = styled.li<{ colorIndex: number }>`
   ${phone`
     font-size: 14px;
   `}
-
 `
