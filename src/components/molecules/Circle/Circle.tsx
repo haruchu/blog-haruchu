@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-key */
 import COLOR from "../../valiables/Color";
-import React from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import styled, { css } from 'styled-components';
 
 interface studyTime {
@@ -12,12 +12,12 @@ export interface CircleProps {
   studyTimes: studyTime[]
 }
 
-const createCircle = (times: number[]) => {
+
+const createCircle = (times: number[], totalTime: number) => {
   let circleStyle = 'background-image: radial-gradient(#f2f2f2 60%, transparent 61%), conic-gradient(';
   let fromPercent = 0;
   let toPercent = 0;
   let tempTime = 0;
-  const totalTime = times.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
 
   times.map((time, index) => {
     tempTime += time;
@@ -30,10 +30,31 @@ const createCircle = (times: number[]) => {
   return css`${circleStyle}`;
 }
 
-const Example: React.FC<CircleProps> = ({studyTimes}) => {
+const toHour = (time: number) => {
+  const hour = Math.floor(time / 60);
+  const min = time % 60;
+
+  return {
+      hour: hour,
+      min: min
+  }
+}
+
+const minToText = (time: number) => {
+  const timeObj = toHour(time);
+  return timeObj.hour ? `${timeObj.hour}時間 ${timeObj.min}分` : `${timeObj.min}分間`;
+}
+
+const Example: React.FC<CircleProps> = ({ studyTimes }) => {
+
+  const totalTimeCulc = useCallback(() => {
+    const times = studyTimes.map(item => item.time);
+    return times.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
+  }, [studyTimes]);
+
   return (
     <Wrapper>
-      <StyledCircle times={studyTimes.map(item => item.time)}></StyledCircle>
+      <StyledCircle times={studyTimes.map(item => item.time)} totalTime={totalTimeCulc()}>{minToText(totalTimeCulc())}</StyledCircle>
       <ul>
         {
           studyTimes.map((item, index) => {
@@ -53,7 +74,7 @@ const Wrapper = styled.div`
   padding: 20px;
 `
 
-const StyledCircle = styled.div<{ times: number[]; }>`
+const StyledCircle = styled.div<{ times: number[], totalTime: number }>`
   display: flex;
 	justify-content: center;
 	align-items: center;
@@ -62,7 +83,7 @@ const StyledCircle = styled.div<{ times: number[]; }>`
 	font-size: 26px;
 	font-weight: 700;
 	border-radius: 50%;
-  ${(props) => createCircle(props.times)}
+  ${(props) => createCircle(props.times, props.totalTime)}
 `
 
 const StyledPrameter = styled.li<{ colorIndex: number }>`

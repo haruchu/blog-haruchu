@@ -1,4 +1,4 @@
 const COLOR: string[] = [
-  "red", "blue", "green", "yellow","pink"
+  "red", "blue", "green", "yellow", "pink"
 ];
 export default COLOR;
