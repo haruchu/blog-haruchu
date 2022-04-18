@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-key */
 import COLOR from "../../valiables/Color";
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback } from "react";
 import styled, { css } from 'styled-components';
 
 interface studyTime {
@@ -14,7 +14,7 @@ export interface CircleProps {
 
 
 const createCircle = (times: number[], totalTime: number) => {
-  let circleStyle = 'background-image: radial-gradient(#f2f2f2 60%, transparent 61%), conic-gradient(';
+  let circleStyle = 'background-image: radial-gradient(#f2f2f2 50%, transparent 51%), conic-gradient(';
   let fromPercent = 0;
   let toPercent = 0;
   let tempTime = 0;
@@ -22,7 +22,7 @@ const createCircle = (times: number[], totalTime: number) => {
   times.map((time, index) => {
     tempTime += time;
     toPercent = (tempTime / totalTime) * 100;
-    circleStyle += `${COLOR[index]} ${fromPercent}% ${toPercent}% ${(times.length - 1 === index) ? `` : `,`}`;
+    circleStyle += `${COLOR[index%7]} ${fromPercent}% ${toPercent}% ${(times.length - 1 === index) ? `` : `,`}`;
     fromPercent = toPercent;
   })
 
@@ -84,6 +84,8 @@ const StyledCircle = styled.div<{ times: number[], totalTime: number }>`
 	font-weight: 700;
 	border-radius: 50%;
   ${(props) => createCircle(props.times, props.totalTime)}
+
+
 `
 
 const StyledPrameter = styled.li<{ colorIndex: number }>`
