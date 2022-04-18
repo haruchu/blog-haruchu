@@ -2,6 +2,7 @@
 import COLOR from "../../valiables/Color";
 import React, { useCallback } from "react";
 import styled, { css } from 'styled-components';
+import { phone } from "../../valiables/BreakPoint";
 
 interface studyTime {
   name: string
@@ -85,6 +86,12 @@ const StyledCircle = styled.div<{ times: number[], totalTime: number }>`
 	border-radius: 50%;
   ${(props) => createCircle(props.times, props.totalTime)}
 
+  ${phone`
+    width: 200px;
+    height: 200px;
+    font-size: 14px;
+  `}
+
 
 `
 
@@ -100,4 +107,9 @@ const StyledPrameter = styled.li<{ colorIndex: number }>`
     margin-right: 8px;
     ${(props) => `background-color: ${COLOR[props.colorIndex]};`}
   }
+
+  ${phone`
+    font-size: 14px;
+  `}
+
 `
