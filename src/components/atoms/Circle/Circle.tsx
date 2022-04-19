@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import COLOR from "../../valiables/Color";
+import { COLOR } from "../../valiables/Color";
 import React, { useCallback } from "react";
 import styled, { css, keyframes } from 'styled-components';
 import { phone } from "../../valiables/BreakPoint";
