@@ -35,7 +35,7 @@ const minToText = (time: number) => {
   return hourTime.toFixed(1);
 }
 
-const Example: React.FC<CircleProps> = ({ studyTimes }) => {
+const Circle: React.FC<CircleProps> = ({ studyTimes }) => {
 
   const totalTimeCulc = useCallback(() => {
     const times = studyTimes.map(item => item.time);
@@ -55,7 +55,7 @@ const Example: React.FC<CircleProps> = ({ studyTimes }) => {
     </Wrapper>
   );
 };
-export default Example;
+export default Circle;
 
 const Wrapper = styled.div`
   display: flex;
