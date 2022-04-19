@@ -1,10 +1,10 @@
 import React from "react";
-import Component from "./MenuList";
+import MenuList from "./MenuList";
 import { AiOutlineHome } from "react-icons/ai"
 
 export default {
-  component: "Molecules/MenuList",
-  title: "MenuList",
+  component: MenuList,
+  title: "Atoms/MenuList",
   parameters: {
     backgrounds: {
       default: "light",
@@ -13,9 +13,9 @@ export default {
 };
 
 export const isOpen = () => {
-  return <Component icon={<AiOutlineHome />} listName={"Home"} isOpen={ true } />;
+  return <MenuList listName={"Home"} isOpen={ true }><AiOutlineHome/></MenuList>;
 };
 
 export const isClose = () => {
-  return <Component icon={<AiOutlineHome />} listName={"Home"} isOpen={ false } />;
+  return <MenuList listName={"Home"} isOpen={ false } ><AiOutlineHome/></MenuList>;
 };

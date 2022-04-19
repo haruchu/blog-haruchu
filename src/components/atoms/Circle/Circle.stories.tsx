@@ -1,9 +1,9 @@
 import React from "react";
-import Component from "./Circle";
+import Circle from "./Circle";
 
 export default {
-  component: "Molecules/Circle",
-  title: "Circle",
+  component: Circle,
+  title: "Atoms/Circle",
   parameters: {
     backgrounds: {
       default: "dark",
@@ -26,5 +26,5 @@ export const Basic = () => {
       time: 60
     }
   ]
-  return <Component studyTimes={ studyTimes } />;
+  return <Circle studyTimes={ studyTimes } />;
 };
