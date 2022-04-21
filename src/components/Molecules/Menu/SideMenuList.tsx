@@ -23,10 +23,10 @@ const SideMenuList: React.FC = () => {
           Haruki Atarashi
         </StyledProfileName>
         <StyledSNSIcons className="sns-icons">
-          <StyledTwitterIcon><AiOutlineTwitter/></StyledTwitterIcon>
-          <StyledInstaIcon><AiOutlineInstagram className="icon"/></StyledInstaIcon>
-          <StyledGithubIcon><AiFillGithub/></StyledGithubIcon>
-          <StyledMailIcon>< AiOutlineMail/></StyledMailIcon>
+          <StyledTwitterIcon href="https://twitter.com/nhp_haru"><AiOutlineTwitter/></StyledTwitterIcon>
+          <StyledInstaIcon href="https://www.instagram.com/haru.playground/"><AiOutlineInstagram className="icon"/></StyledInstaIcon>
+          <StyledGithubIcon href="https://github.com/haruchu"><AiFillGithub/></StyledGithubIcon>
+          <StyledMailIcon href="mailto:haruki.0618.biz@gmail.com">< AiOutlineMail/></StyledMailIcon>
         </StyledSNSIcons>
       </StyledInfo>
       <StyledMenuLists>
