@@ -49,6 +49,6 @@ const StyledLink = styled.a`
 
 const StyledListName = styled.span<{ isOpen: boolean }>`
   overflow: hidden;
-  transition: 2s;
+  transition: 1s;
   ${(props) => props.isOpen ? `margin-left: 16px; opacity: 1;` : `width: 0; opacity: 0;`}
 `
