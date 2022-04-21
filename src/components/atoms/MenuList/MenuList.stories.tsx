@@ -1,6 +1,6 @@
 import React from "react";
 import MenuList from "./MenuList";
-import { AiOutlineHome } from "react-icons/ai"
+import { AiOutlineHome } from "react-icons/ai";
 
 export default {
   component: MenuList,
@@ -13,9 +13,17 @@ export default {
 };
 
 export const isOpen = () => {
-  return <MenuList listName={"Home"} isOpen={ true }><AiOutlineHome/></MenuList>;
+  return (
+    <MenuList listName={"Home"} isOpen={true}>
+      <AiOutlineHome />
+    </MenuList>
+  );
 };
 
 export const isClose = () => {
-  return <MenuList listName={"Home"} isOpen={ false } ><AiOutlineHome/></MenuList>;
+  return (
+    <MenuList listName={"Home"} isOpen={false}>
+      <AiOutlineHome />
+    </MenuList>
+  );
 };

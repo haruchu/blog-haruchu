@@ -1,20 +1,19 @@
 import { MAIN_COLOR } from "../../valiables/Color";
 import React, { ReactNode } from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export interface MenuListProps {
-  children: ReactNode,
-  listName: string,
-  isOpen: boolean
+  children: ReactNode;
+  listName: string;
+  isOpen: boolean;
 }
 
 const MenuList: React.FC<MenuListProps> = ({ children, listName, isOpen }) => {
-
   return (
     <StyledMenuList>
       <StyledLink>
         {children}
-        <StyledListName isOpen={isOpen}>{ listName }</StyledListName>
+        <StyledListName isOpen={isOpen}>{listName}</StyledListName>
       </StyledLink>
     </StyledMenuList>
   );
@@ -29,7 +28,7 @@ const StyledMenuList = styled.li`
   &:hover {
     background-color: ${MAIN_COLOR.NOMAL_BLUE};
   }
-`
+`;
 
 const StyledLink = styled.a`
   display: flex;
@@ -45,10 +44,11 @@ const StyledLink = styled.a`
     min-width: 24px;
     font-size: 24px;
   }
-`
+`;
 
 const StyledListName = styled.span<{ isOpen: boolean }>`
   overflow: hidden;
   transition: 1s;
-  ${(props) => props.isOpen ? `margin-left: 16px; opacity: 1;` : `width: 0; opacity: 0;`}
-`
+  ${(props) =>
+    props.isOpen ? `margin-left: 16px; opacity: 1;` : `width: 0; opacity: 0;`}
+`;

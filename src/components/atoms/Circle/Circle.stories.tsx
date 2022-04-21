@@ -15,16 +15,16 @@ export const Basic = () => {
   const studyTimes = [
     {
       name: "HTML",
-      time: 30
+      time: 30,
     },
     {
       name: "CSS",
-      time: 40
+      time: 40,
     },
     {
       name: "Javascript",
-      time: 60
-    }
-  ]
-  return <Circle studyTimes={ studyTimes } />;
+      time: 60,
+    },
+  ];
+  return <Circle studyTimes={studyTimes} />;
 };
