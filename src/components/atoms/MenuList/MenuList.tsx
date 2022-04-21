@@ -22,9 +22,7 @@ export default MenuList;
 
 const StyledMenuList = styled.li`
   list-style: none;
-
   transition: 0.2s;
-  background-color: ${MAIN_COLOR.DARK_BLUE};
   &:hover {
     background-color: ${MAIN_COLOR.NOMAL_BLUE};
   }
