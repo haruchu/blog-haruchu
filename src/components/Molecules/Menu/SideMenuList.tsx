@@ -19,10 +19,10 @@ const SideMenuList: React.FC = () => {
           <StyledImg src={ProfileIcon} />
         </StyledProfileIcon>
         <StyledSNSIcons className="sns-icons">
-            <ExampleIcon>a</ExampleIcon>
-            <ExampleIcon>b</ExampleIcon>
-            <ExampleIcon>c</ExampleIcon>
-            <ExampleIcon>d</ExampleIcon>
+          <ExampleIcon>a</ExampleIcon>
+          <ExampleIcon>b</ExampleIcon>
+          <ExampleIcon>c</ExampleIcon>
+          <ExampleIcon>d</ExampleIcon>
         </StyledSNSIcons>
       </StyledInfo>
       <StyledMenuLists>
@@ -37,25 +37,25 @@ const SideMenuList: React.FC = () => {
 };
 export default SideMenuList;
 
-const StyledSideMenu = styled.div<{isOpen: boolean}>`
+const StyledSideMenu = styled.div<{ isOpen: boolean }>`
   width: 70px;
+  height: 100vh;
   transition: 0.5s;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   background-color: ${MAIN_COLOR.DARK_BLUE};
-  ${(props) => props.isOpen &&
-  css`
-    width: 300px;
-
+  ${(props) =>
+    props.isOpen &&
+    css`
+      width: 300px;
       .profile-icon {
         width: 100px;
       }
       .sns-icons {
         opacity: 1;
       }
-    `
-  }
-
+    `}
 `;
 
 const StyledInfo = styled.div`
@@ -71,8 +71,8 @@ const StyledProfileIcon = styled.div`
   width: 50px;
   padding: 10px;
   box-sizing: border-box;
-  transition: .5s;
-`
+  transition: 0.5s;
+`;
 
 const StyledImg = styled.img`
   border-radius: 50%;
@@ -82,13 +82,13 @@ const StyledImg = styled.img`
 
 const StyledSNSIcons = styled.div`
   opacity: 0;
-  transition: .5s;
+  transition: 0.5s;
 `;
 
 const ExampleIcon = styled.span`
   background-color: green;
   width: 20px;
-`
+`;
 
 const StyledMenuLists = styled.ul`
   width: 100%;
