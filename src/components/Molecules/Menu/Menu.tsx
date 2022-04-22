@@ -5,15 +5,15 @@ import { BsCalendarWeek } from "react-icons/bs";
 
 export const Menu = [
   {
-    name: "HOME",
+    name: "Home",
     icon: <AiOutlineHome />,
   },
   {
-    name: "articles",
+    name: "Articles",
     icon: <MdOutlineArticle />,
   },
   {
-    name: "calendar",
+    name: "Calendar",
     icon: <BsCalendarWeek />,
   },
 ];
