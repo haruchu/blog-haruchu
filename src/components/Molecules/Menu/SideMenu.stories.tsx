@@ -1,9 +1,9 @@
 import React from "react";
-import SideMenuList from "./SideMenuList";
+import SideMenu from "./SideMenu";
 
 export default {
-  component: SideMenuList,
-  title: "Molecules/SideMenuList",
+  component: SideMenu,
+  title: "Molecules/SideMenu",
   parameters: {
     backgrounds: {
       default: "light",
@@ -12,5 +12,5 @@ export default {
 };
 
 export const Basic = () => {
-  return <SideMenuList />;
+  return <SideMenu />;
 };
