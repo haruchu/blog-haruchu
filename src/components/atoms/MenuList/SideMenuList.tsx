@@ -8,7 +8,11 @@ export interface MenuListProps {
   isOpen: boolean;
 }
 
-const SideMenuList: React.FC<MenuListProps> = ({ children, listName, isOpen }) => {
+const SideMenuList: React.FC<MenuListProps> = ({
+  children,
+  listName,
+  isOpen,
+}) => {
   return (
     <StyledMenuList>
       <StyledLink>

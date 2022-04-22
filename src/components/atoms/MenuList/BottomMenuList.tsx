@@ -9,52 +9,52 @@ export interface MenuListProps {
   onActive: React.MouseEventHandler<HTMLLIElement>;
 }
 
-const BottomMenuList: React.FC<MenuListProps> = ({ listName, children, index, openIndex, onActive }) => {
+const BottomMenuList: React.FC<MenuListProps> = ({
+  listName,
+  children,
+  index,
+  openIndex,
+  onActive,
+}) => {
   return (
     <StyledList
-      className={openIndex == index ? 'list active' : 'list'}
       index={index}
       isOpen={index == openIndex ? true : false}
       onClick={onActive}
     >
-      <StyledLink href='#'>
-        <StyledIcon className='icon'>
-          {children}
-        </StyledIcon>
-        <StyledText className='text'>
-          {listName}
-        </StyledText>
+      <StyledLink href="#">
+        <StyledIcon className="icon">{children}</StyledIcon>
+        <StyledText className="text">{listName}</StyledText>
       </StyledLink>
     </StyledList>
-
   );
 };
 export default BottomMenuList;
 
-
-const StyledList = styled.li<{ index: number; isOpen: boolean}>`
+const StyledList = styled.li<{ index: number; isOpen: boolean }>`
   list-style: none;
   width: 70px;
   height: 70px;
   z-index: 1;
 
-  ${(props) => `
-    ${props.isOpen && `
-      &.active a .icon {
+  ${(props) =>
+    props.isOpen &&
+    `
+      & a .icon {
         transform: translateY(-35px);
       }
 
-      &.active a .text {
+      & a .text {
         opacity: 1;
         transform: translateY(10px);
       }
+
+      & ~ .indicator
+      {
+        transform: translateX(calc(70px * ${props.index}));
+      }
     `}
-    &:nth-child(${props.index}).active ~ .indicator
-    {
-      transform: translateX(calc(70px * ${props.index}));
-    }
-  `}
-`
+`;
 
 const StyledLink = styled.a`
   position: relative;
@@ -65,7 +65,7 @@ const StyledLink = styled.a`
   width: 100%;
   text-align: center;
   font-weight: 500;
-`
+`;
 
 const StyledIcon = styled.span`
   display: block;
@@ -74,7 +74,7 @@ const StyledIcon = styled.span`
   text-align: center;
   transition: 0.5s;
   color: black;
-`
+`;
 
 const StyledText = styled.span`
   position: absolute;
@@ -84,4 +84,4 @@ const StyledText = styled.span`
   transition: 0.5s;
   opacity: 0;
   transform: translateY(20px);
-`
+`;
