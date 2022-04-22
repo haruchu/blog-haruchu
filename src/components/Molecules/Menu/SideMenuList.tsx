@@ -7,7 +7,7 @@ import { MAIN_COLOR } from "../../valiables/Color";
 import { AiFillGithub, AiOutlineTwitter, AiOutlineInstagram, AiOutlineMail } from "react-icons/ai";
 
 const SideMenuList: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <StyledSideMenu
