@@ -1,9 +1,9 @@
 import React from "react";
-import MenuList from "./MenuList";
+import SideMenuList from "./SideMenuList";
 import { AiOutlineHome } from "react-icons/ai";
 
 export default {
-  component: MenuList,
+  component: SideMenuList,
   title: "Atoms/MenuList",
   parameters: {
     backgrounds: {
@@ -14,16 +14,16 @@ export default {
 
 export const isOpen = () => {
   return (
-    <MenuList listName={"Home"} isOpen={true}>
+    <SideMenuList listName={"Home"} isOpen={true}>
       <AiOutlineHome />
-    </MenuList>
+    </SideMenuList>
   );
 };
 
 export const isClose = () => {
   return (
-    <MenuList listName={"Home"} isOpen={false}>
+    <SideMenuList listName={"Home"} isOpen={false}>
       <AiOutlineHome />
-    </MenuList>
+    </SideMenuList>
   );
 };
