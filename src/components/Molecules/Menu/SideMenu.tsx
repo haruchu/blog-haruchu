@@ -77,6 +77,8 @@ const StyledProfileIcon = styled.div`
   padding: 10px;
   box-sizing: border-box;
   transition: 0.5s;
+  display: flex;
+  justify-content: center;
 `;
 
 const StyledImg = styled.img`
