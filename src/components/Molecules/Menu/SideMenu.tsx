@@ -4,12 +4,7 @@ import { Menu } from "./Menu";
 import styled, { css } from "styled-components";
 import ProfileIcon from "../../assets/profile.jpg";
 import { MAIN_COLOR } from "../../valiables/Color";
-import {
-  AiFillGithub,
-  AiOutlineTwitter,
-  AiOutlineInstagram,
-  AiOutlineMail,
-} from "react-icons/ai";
+import { GithubIcon, InstaIcon, MailIcon, TwitterIcon } from "../SNSShowButton/SNSIcons";
 
 const SideMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,18 +23,10 @@ const SideMenu: React.FC = () => {
           Haruki Atarashi
         </StyledProfileName>
         <StyledSNSIcons className="sns-icons">
-          <StyledTwitterIcon href="https://twitter.com/nhp_haru">
-            <AiOutlineTwitter />
-          </StyledTwitterIcon>
-          <StyledInstaIcon href="https://www.instagram.com/haru.playground/">
-            <AiOutlineInstagram className="icon" />
-          </StyledInstaIcon>
-          <StyledGithubIcon href="https://github.com/haruchu">
-            <AiFillGithub />
-          </StyledGithubIcon>
-          <StyledMailIcon href="mailto:haruki.0618.biz@gmail.com">
-            <AiOutlineMail />
-          </StyledMailIcon>
+          <TwitterIcon />
+          <InstaIcon />
+          <GithubIcon />
+          <MailIcon/>
         </StyledSNSIcons>
       </StyledInfo>
       <StyledMenuLists>
@@ -112,72 +99,6 @@ const StyledSNSIcons = styled.div`
   transition: 0.1s;
   margin: 20px;
   display: flex;
-`;
-
-const StyledIconWrapper = css`
-  width: 30px;
-  height: 30px;
-  padding: 6px;
-  margin-left: 10px;
-  font-size: 28px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: 0.5s;
-  &:hover {
-    transform: scale(1.1);
-    opacity: 0.8;
-  }
-`;
-
-const StyledTwitterIcon = styled.a`
-  ${StyledIconWrapper};
-  color: white;
-  background-color: rgb(29, 155, 240);
-`;
-
-const StyledInstaIcon = styled.a`
-  ${StyledIconWrapper};
-  color: #fff;
-  background: -webkit-linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
-  background: linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
-  overflow: hidden;
-  position: relative;
-  .icon {
-    z-index: 2;
-  }
-  &::before {
-    content: "";
-    position: absolute;
-    top: 12px;
-    left: -9px;
-    width: 30px;
-    height: 30px;
-    background: -webkit-radial-gradient(
-      #ffdb2c 10%,
-      rgba(255, 105, 34, 0.65) 55%,
-      rgba(255, 88, 96, 0) 70%
-    );
-    background: radial-gradient(
-      #ffdb2c 10%,
-      rgba(255, 105, 34, 0.65) 55%,
-      rgba(255, 88, 96, 0) 70%
-    );
-  }
-`;
-
-const StyledGithubIcon = styled.a`
-  ${StyledIconWrapper};
-  color: #fff;
-  background-color: #000;
-`;
-
-const StyledMailIcon = styled.a`
-  ${StyledIconWrapper};
-  color: #000;
-  background-color: #fff;
 `;
 
 const StyledMenuLists = styled.ul`
