@@ -1,4 +1,4 @@
-import MenuList from "../../atoms/MenuList/SideMenuList";
+import SideMenuList from "../../atoms/MenuList/SideMenuList";
 import React, { useState } from "react";
 import { Menu } from "./Menu";
 import styled, { css } from "styled-components";
@@ -6,7 +6,7 @@ import ProfileIcon from "../../assets/profile.jpg";
 import { MAIN_COLOR } from "../../valiables/Color";
 import { AiFillGithub, AiOutlineTwitter, AiOutlineInstagram, AiOutlineMail } from "react-icons/ai";
 
-const SideMenuList: React.FC = () => {
+const SideMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -31,15 +31,15 @@ const SideMenuList: React.FC = () => {
       </StyledInfo>
       <StyledMenuLists>
         {Menu.map((item, index) => (
-          <MenuList listName={item.name} key={index} isOpen={isOpen}>
+          <SideMenuList listName={item.name} key={index} isOpen={isOpen}>
             {item.icon}
-          </MenuList>
+          </SideMenuList>
         ))}
       </StyledMenuLists>
     </StyledSideMenu>
   );
 };
-export default SideMenuList;
+export default SideMenu;
 
 const StyledSideMenu = styled.div<{ isOpen: boolean }>`
   width: 70px;
