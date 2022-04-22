@@ -36,6 +36,7 @@ const BottomMenu: React.FC = () => {
 };
 export default BottomMenu;
 
+// 仮のWrapper 後ではずす
 const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -45,7 +46,7 @@ const StyledWrapper = styled.div`
 `
 
 const StyledMenu = styled.div`
-  width: 400px;
+  width: 100%;
   height: 70px;
   background-color: ${MAIN_COLOR.LIGHT_BLUE};
   display: flex;
