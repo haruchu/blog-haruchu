@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Menu } from "./Menu";
 import styled from "styled-components";
 import BottomMenuList from "../../atoms/MenuList/BottomMenuList";
+import { MAIN_COLOR } from "../../valiables/Color";
 
 const BottomMenu: React.FC = () => {
   const [openIndex, setOpenIndex] = useState(0);
@@ -40,13 +41,13 @@ const StyledWrapper = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: black;
-`;
+  background-color: ${MAIN_COLOR.WHITE_BLUE};
+`
 
 const StyledMenu = styled.div`
   width: 400px;
   height: 70px;
-  background-color: white;
+  background-color: ${MAIN_COLOR.LIGHT_BLUE};
   display: flex;
   align-content: center;
   justify-content: center;
@@ -66,9 +67,9 @@ const StyledIndicator = styled.div`
   top: -50%;
   width: 70px;
   height: 70px;
-  background-color: #30bfdd;
+  background-color: ${MAIN_COLOR.NOMAL_BLUE};
   border-radius: 50%;
-  border: solid 6px black;
+  border: solid 6px ${MAIN_COLOR.WHITE_BLUE};
   box-sizing: border-box;
   transition: 0.5s;
 
@@ -81,7 +82,7 @@ const StyledIndicator = styled.div`
     width: 20px;
     height: 20px;
     border-top-right-radius: 20px;
-    box-shadow: 0px -10px black;
+    box-shadow: 0px -10px ${MAIN_COLOR.WHITE_BLUE};
   }
 
   &::after {
@@ -93,6 +94,6 @@ const StyledIndicator = styled.div`
     width: 20px;
     height: 20px;
     border-top-left-radius: 20px;
-    box-shadow: 0px -10px black;
+    box-shadow: 0px -10px ${MAIN_COLOR.WHITE_BLUE};
   }
 `;
