@@ -1,4 +1,4 @@
-import MenuList from "../../atoms/MenuList/MenuList";
+import MenuList from "../../atoms/MenuList/SideMenuList";
 import React, { useState } from "react";
 import { Menu } from "./Menu";
 import styled, { css } from "styled-components";

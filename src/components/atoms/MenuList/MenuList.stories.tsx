@@ -1,5 +1,5 @@
 import React from "react";
-import MenuList from "./MenuList";
+import MenuList from "./SideMenuList";
 import { AiOutlineHome } from "react-icons/ai";
 
 export default {
