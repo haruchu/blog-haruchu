@@ -6,6 +6,7 @@ import {
   AiOutlineMail,
 } from "react-icons/ai";
 import styled from "styled-components";
+import { GithubIcon, InstaIcon, MailIcon, TwitterIcon } from "./SNSIcons";
 
 const SideMenu: React.FC = () => {
   const [isShow, setIsShow] = useState(false);
@@ -15,12 +16,10 @@ const SideMenu: React.FC = () => {
       <button onClick={() => setIsShow(!isShow)}>
         クリック
       </button>
-      <div>
-          <StyledIcon index={1} isShow={isShow}>a</StyledIcon>
-          <StyledIcon index={2} isShow={isShow}>a</StyledIcon>
-          <StyledIcon index={3} isShow={isShow}>a</StyledIcon>
-          <StyledIcon index={4} isShow={isShow}>a</StyledIcon>
-      </div>
+      <StyledIcon index={1} isShow={isShow}><TwitterIcon/></StyledIcon>
+      <StyledIcon index={2} isShow={isShow}><InstaIcon/></StyledIcon>
+      <StyledIcon index={3} isShow={isShow}><GithubIcon/></StyledIcon>
+      <StyledIcon index={4} isShow={isShow}><MailIcon/></StyledIcon>
     </>
   );
 };
