@@ -15,10 +15,15 @@ export default {
 export const isActive = () => {
   const onActive = () => {
     console.log("Active");
-  }
+  };
 
   return (
-    <BottomMenuList listName={"Home"} index={1} openIndex={1} onActive={onActive}>
+    <BottomMenuList
+      listName={"Home"}
+      index={1}
+      openIndex={1}
+      onActive={onActive}
+    >
       <AiOutlineHome />
     </BottomMenuList>
   );
@@ -27,10 +32,15 @@ export const isActive = () => {
 export const notActive = () => {
   const onActive = () => {
     console.log("Active");
-  }
+  };
 
   return (
-    <BottomMenuList listName={"Home"} index={1} openIndex={2} onActive={onActive}>
+    <BottomMenuList
+      listName={"Home"}
+      index={1}
+      openIndex={2}
+      onActive={onActive}
+    >
       <AiOutlineHome />
     </BottomMenuList>
   );
