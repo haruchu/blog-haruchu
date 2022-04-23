@@ -43,7 +43,7 @@ const StyledWrapper = styled.div`
   justify-content: center;
   min-height: 100vh;
   background-color: ${MAIN_COLOR.WHITE_BLUE};
-`
+`;
 
 const StyledMenu = styled.div`
   width: 100%;

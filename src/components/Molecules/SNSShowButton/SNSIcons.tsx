@@ -1,5 +1,10 @@
 import React from "react";
-import { AiFillGithub, AiOutlineInstagram, AiOutlineMail, AiOutlineTwitter } from "react-icons/ai";
+import {
+  AiFillGithub,
+  AiOutlineInstagram,
+  AiOutlineMail,
+  AiOutlineTwitter,
+} from "react-icons/ai";
 import styled, { css } from "styled-components";
 
 const StyledIconWrapper = css`

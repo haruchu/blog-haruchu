@@ -4,7 +4,12 @@ import { Menu } from "./Menu";
 import styled, { css } from "styled-components";
 import ProfileIcon from "../../assets/profile.jpg";
 import { MAIN_COLOR } from "../../valiables/Color";
-import { GithubIcon, InstaIcon, MailIcon, TwitterIcon } from "../SNSShowButton/SNSIcons";
+import {
+  GithubIcon,
+  InstaIcon,
+  MailIcon,
+  TwitterIcon,
+} from "../SNSShowButton/SNSIcons";
 
 const SideMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +31,7 @@ const SideMenu: React.FC = () => {
           <TwitterIcon />
           <InstaIcon />
           <GithubIcon />
-          <MailIcon/>
+          <MailIcon />
         </StyledSNSIcons>
       </StyledInfo>
       <StyledMenuLists>
