@@ -1,6 +1,7 @@
 import { MAIN_COLOR } from "../../valiables/Color";
 import React from "react";
 import styled from "styled-components";
+import { phone } from "../../valiables/BreakPoint";
 
 interface SkillProps {
   StudyImg: string;
@@ -39,7 +40,7 @@ const Skill: React.FC<SkillProps> = ({ StudyImg, StudyName, Comprehension }) => 
           { StudyName }
         </StyledStudyName>
         <StyledStudyGauge max={100} low={30} high={80} optimum={100} value={Comprehension * 20} />
-        <text>{ ReturnComprehensionText(Comprehension) }</text>
+        <StyledComprehensionText>{ ReturnComprehensionText(Comprehension) }</StyledComprehensionText>
       </StyledDetail>
     </StyledWrapper>
 
@@ -50,30 +51,51 @@ export default Skill;
 const StyledWrapper = styled.div`
   background-color: ${MAIN_COLOR.LIGHT_BLUE};
   width: 400px;
+  margin: 20px;
   padding: 30px;
   display: flex;
   border-radius: 20px;
+  ${phone`
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+  `}
 `
 
 const StyledStudyImg = styled.img`
   width: 100px;
   border-radius: 20px;
+  object-fit: cover;
+  border: 10px solid transparent;
+  ${phone`
+    width: 50px;
+  `}
 `
 
 const StyledDetail = styled.div`
   margin-left: 40px;
   display: flex;
   flex-direction: column;
+  ${phone`
+    margin-left: 20px;
+  `}
 `
 
 const StyledStudyName = styled.span`
   font-weight: 800;
   margin-bottom: 10px;
+  ${phone`
+    font-size: 8px;
+  `}
 `
 
 const StyledStudyGauge = styled.meter`
   width: 200px;
   height: 30px;
+  ${phone`
+    width: 100px;
+    height: 16px;
+  `}
   &::-webkit-meter-optimum-value{
     background-color: #6BCB77;
   }
@@ -83,4 +105,10 @@ const StyledStudyGauge = styled.meter`
   &::-webkit-meter-even-less-good-value{
     background-color: #FF6B6B;
   }
+`
+
+const StyledComprehensionText = styled.text`
+  ${phone`
+    font-size: 8px;
+  `}
 `
