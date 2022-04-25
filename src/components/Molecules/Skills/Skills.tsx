@@ -5,12 +5,16 @@ import { SkillLists } from "./SkillLists";
 import Skill from "../../atoms/Skill/Skill";
 
 const Skills: React.FC = () => {
-
   return (
     <StyledSkills>
       {SkillLists.map((skill, index) => (
-        <Skill key={index} StudyImg={ skill.StudyImg } StudyName={ skill.StudyName } Comprehension={ skill.Comprehension } />
-    ))}
+        <Skill
+          key={index}
+          StudyImg={skill.StudyImg}
+          StudyName={skill.StudyName}
+          Comprehension={skill.Comprehension}
+        />
+      ))}
     </StyledSkills>
   );
 };
@@ -21,4 +25,4 @@ const StyledSkills = styled.ul`
   justify-content: center;
   flex-wrap: wrap;
   padding: 0;
-`
+`;

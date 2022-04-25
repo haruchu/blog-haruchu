@@ -1,7 +1,7 @@
 import React from "react";
 import Skill from "./Skill";
 import { AiOutlineHome } from "react-icons/ai";
-import HTMLImg from "./../../assets/HTML.png"
+import HTMLImg from "./../../assets/HTML.png";
 
 export default {
   component: Skill,
@@ -14,8 +14,5 @@ export default {
 };
 
 export const Basic = () => {
-  return (
-    <Skill StudyImg={ HTMLImg } StudyName={ "HTML" } Comprehension={ 4 } />
-  );
+  return <Skill StudyImg={HTMLImg} StudyName={"HTML"} Comprehension={4} />;
 };
-

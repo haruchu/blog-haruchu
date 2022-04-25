@@ -12,38 +12,41 @@ interface SkillProps {
 const ReturnComprehensionText = (Comprehension: number) => {
   if (Comprehension == 5) {
     return "かんぺき";
-  }
-  else if (Comprehension >= 4) {
+  } else if (Comprehension >= 4) {
     return "けっこう わかる";
-  }
-  else if (Comprehension >= 3) {
+  } else if (Comprehension >= 3) {
     return "まぁまぁ わかる";
-  }
-  else if (Comprehension >= 2) {
+  } else if (Comprehension >= 2) {
     return "触れたことあるくらい";
-  }
-  else if (Comprehension >= 1) {
+  } else if (Comprehension >= 1) {
     return "わからないところが多い";
-  }
-  else {
+  } else {
     return "わからない";
   }
-}
+};
 
-const Skill: React.FC<SkillProps> = ({ StudyImg, StudyName, Comprehension }) => {
-
+const Skill: React.FC<SkillProps> = ({
+  StudyImg,
+  StudyName,
+  Comprehension,
+}) => {
   return (
     <StyledWrapper>
-      <StyledStudyImg src={ StudyImg } />
+      <StyledStudyImg src={StudyImg} />
       <StyledDetail>
-        <StyledStudyName>
-          { StudyName }
-        </StyledStudyName>
-        <StyledStudyGauge max={100} low={30} high={80} optimum={100} value={Comprehension * 20} />
-        <StyledComprehensionText>{ ReturnComprehensionText(Comprehension) }</StyledComprehensionText>
+        <StyledStudyName>{StudyName}</StyledStudyName>
+        <StyledStudyGauge
+          max={100}
+          low={30}
+          high={80}
+          optimum={100}
+          value={Comprehension * 20}
+        />
+        <StyledComprehensionText>
+          {ReturnComprehensionText(Comprehension)}
+        </StyledComprehensionText>
       </StyledDetail>
     </StyledWrapper>
-
   );
 };
 export default Skill;
@@ -60,7 +63,7 @@ const StyledWrapper = styled.div`
     padding: 10px;
     margin: 10px;
   `}
-`
+`;
 
 const StyledStudyImg = styled.img`
   width: 100px;
@@ -70,7 +73,7 @@ const StyledStudyImg = styled.img`
   ${phone`
     width: 50px;
   `}
-`
+`;
 
 const StyledDetail = styled.div`
   margin-left: 40px;
@@ -79,7 +82,7 @@ const StyledDetail = styled.div`
   ${phone`
     margin-left: 20px;
   `}
-`
+`;
 
 const StyledStudyName = styled.span`
   font-weight: 800;
@@ -87,7 +90,7 @@ const StyledStudyName = styled.span`
   ${phone`
     font-size: 8px;
   `}
-`
+`;
 
 const StyledStudyGauge = styled.meter`
   width: 200px;
@@ -96,19 +99,19 @@ const StyledStudyGauge = styled.meter`
     width: 100px;
     height: 16px;
   `}
-  &::-webkit-meter-optimum-value{
-    background-color: #6BCB77;
+  &::-webkit-meter-optimum-value {
+    background-color: #6bcb77;
   }
-  &::-webkit-meter-suboptimum-value{
-    background-color: #FFD93D;
+  &::-webkit-meter-suboptimum-value {
+    background-color: #ffd93d;
   }
-  &::-webkit-meter-even-less-good-value{
-    background-color: #FF6B6B;
+  &::-webkit-meter-even-less-good-value {
+    background-color: #ff6b6b;
   }
-`
+`;
 
 const StyledComprehensionText = styled.text`
   ${phone`
     font-size: 8px;
   `}
-`
+`;
