@@ -8,7 +8,12 @@ module.exports = {
     path: path.resolve(__dirname, "build"),
   },
   module: {
-    rules: [{ test: /\.ts|tsx$/, use: "ts-loader" }],
+    rules: [{ test: /\.ts|tsx$/, use: "ts-loader" },
+    {
+      test: /\.(png|jpg)$/,
+      loader: 'url-loader',
+      options: {},
+  }],
   },
   resolve: {
     extensions: ['.tsx', '.ts']

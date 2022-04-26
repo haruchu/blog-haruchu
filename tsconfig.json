@@ -10,7 +10,15 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": [
+      "types",
+      "node_modules/@types"
+    ],
+    "include": [
+      "src/**/*",
+      "types/**/*"
+    ]
   },
   "exclude": ["node_modules"]
 }
