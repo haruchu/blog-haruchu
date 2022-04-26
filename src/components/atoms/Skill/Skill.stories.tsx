@@ -1,6 +1,5 @@
 import React from "react";
 import Skill from "./Skill";
-import { AiOutlineHome } from "react-icons/ai";
 import HTMLImg from "./../../assets/HTML.png";
 
 export default {

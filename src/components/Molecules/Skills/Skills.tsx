@@ -1,4 +1,3 @@
-import { MAIN_COLOR } from "../../valiables/Color";
 import React from "react";
 import styled from "styled-components";
 import { SkillLists } from "./SkillLists";
