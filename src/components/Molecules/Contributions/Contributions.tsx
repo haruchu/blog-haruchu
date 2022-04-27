@@ -5,10 +5,11 @@ import 'tui-date-picker/dist/tui-date-picker.css';
 import 'tui-time-picker/dist/tui-time-picker.css';
 
 const Contributions = () => {
+
   const calendar = new Calendar('#calendar', {
-    defaultView: 'month', // monthly view option
-    taskView: true,    // Can be also ['milestone', 'task']
-    scheduleView: true,
+    defaultView: "month",
+    useCreationPopup: true,
+    useDetailPopup: true
   });
 
   return (
