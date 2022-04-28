@@ -1,4 +1,6 @@
-import React from "react";
+import { MAIN_COLOR } from "../../valiables/Color";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import CalendarHeatmap from "react-calendar-heatmap";
 import "react-calendar-heatmap/dist/styles.css";
 import ReactTooltip from "react-tooltip";
@@ -10,59 +12,84 @@ interface ContributionProps {
 
 const Contributions: React.FC<ContributionProps> = ({ contributions }) => {
   const today = new Date(); // 変数が呼ばれた時の日時がDate型で取得できる
-  const year = today.getFullYear();
+  const [year, setYear] = useState(today.getFullYear())
+
+  const nextYear = (year: number) => {
+    setYear(year+1);
+    return;
+  }
+  const prevYear = (year: number) => {
+    setYear(year-1);
+    return ;
+  }
 
   return (
-    <Container>
-      <Year>{year}</Year>
-      <div className="description-scales">
-        <div>Soft</div>
-        <div className="scales">
-          <div className="scale color-scale-very-soft" data-tip="~2h"></div>
-          <div className="scale color-scale-soft" data-tip="2~4h"></div>
-          <div className="scale color-scale-hard" data-tip="4~7h"></div>
-          <div className="scale color-scale-very-hard" data-tip="7h~"></div>
-        </div>
-        <div>Hard</div>
-      </div>
-      <Calender>
-        <CalendarHeatmap
-          startDate={new Date(year + "-01-01")}
-          endDate={new Date(year + "-12-31")}
-          values={contributions}
-          classForValue={(value) => {
-            if (!value) {
-              return "color-empty";
-            }
-            if (value.totalTime > 7) {
-              return `color-scale-very-hard`;
-            } else if (value.totalTime > 4) {
-              return `color-scale-hard`;
-            } else if (value.totalTime > 2) {
-              return `color-scale-soft`;
-            } else {
-              return `color-scale-very-soft`;
-            }
-          }}
-          tooltipDataAttrs={(value: { date: Date; totalTime: number }) => {
-            if (!value || !value.date) {
-              return null;
-            }
-            return {
-              "data-tip": `${value.date} ${value.totalTime}h`,
-            };
-          }}
-          showWeekdayLabels={true}
-          onClick={(value) => console.log(value)}
-          gutterSize={2}
-        />
-      </Calender>
-      <ReactTooltip />
-    </Container>
+    <StyledWrapper>
+      <Container>
+        <StyledCalenderHeader>
+          <button onClick={() => prevYear(year)}>{ year -1 }</button>
+          <Year>{year}</Year>
+          <button onClick={() => nextYear(year)}>{ year + 1}</button>
+          <div className="description-scales">
+            <div>Soft</div>
+            <div className="scales">
+              <div className="scale color-scale-very-soft" data-tip="~2h"></div>
+              <div className="scale color-scale-soft" data-tip="2~4h"></div>
+              <div className="scale color-scale-hard" data-tip="4~7h"></div>
+              <div className="scale color-scale-very-hard" data-tip="7h~"></div>
+            </div>
+            <div>Hard</div>
+          </div>
+        </StyledCalenderHeader>
+        <Calender>
+          <CalendarHeatmap
+            startDate={new Date(year + "-01-01")}
+            endDate={new Date(year + "-12-31")}
+            values={contributions}
+            classForValue={(value) => {
+              if (!value) {
+                return "color-empty";
+              }
+              if (value.totalTime > 7) {
+                return `color-scale-very-hard`;
+              } else if (value.totalTime > 4) {
+                return `color-scale-hard`;
+              } else if (value.totalTime > 2) {
+                return `color-scale-soft`;
+              } else {
+                return `color-scale-very-soft`;
+              }
+            }}
+            tooltipDataAttrs={(value: { date: Date; totalTime: number }) => {
+              if (!value || !value.date) {
+                return null;
+              }
+              return {
+                "data-tip": `${value.date} ${value.totalTime}h`,
+              };
+            }}
+            showWeekdayLabels={true}
+            onClick={(value) => console.log(value)}
+            gutterSize={2}
+          />
+        </Calender>
+        <ReactTooltip />
+      </Container>
+
+    </StyledWrapper>
   );
 };
 
 export default Contributions;
+
+// 仮のWrapper
+const StyledWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  min-height: 100vh;
+  background-color: ${MAIN_COLOR.WHITE_BLUE};
+`;
 
 const Container = styled.div`
   width: 90vw;
@@ -74,14 +101,11 @@ const Container = styled.div`
 
   .description-scales {
     display: flex;
-    position: fixed;
-    top: 230px;
-    margin: 10px;
+    margin-left: 8px;
   }
 
   .scales {
     display: flex;
-    margin: 0 5px;
   }
 
   .scale {
@@ -111,9 +135,20 @@ const Container = styled.div`
 `;
 
 const Year = styled.span`
-  position: fixed;
   margin: 4px;
+  font-weight: 800;
 `;
+
+const StyledCalenderHeader = styled.div`
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: space-between;
+  button {
+    margin: 0 8px;
+    height: 20px;
+  }
+`
 
 const Calender = styled.div`
   display: inline-block;
