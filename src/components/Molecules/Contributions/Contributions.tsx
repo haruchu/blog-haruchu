@@ -1,5 +1,5 @@
 import { MAIN_COLOR } from "../../valiables/Color";
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import CalendarHeatmap from "react-calendar-heatmap";
 import "react-calendar-heatmap/dist/styles.css";
@@ -12,24 +12,24 @@ interface ContributionProps {
 
 const Contributions: React.FC<ContributionProps> = ({ contributions }) => {
   const today = new Date(); // 変数が呼ばれた時の日時がDate型で取得できる
-  const [year, setYear] = useState(today.getFullYear())
+  const [year, setYear] = useState(today.getFullYear());
 
   const nextYear = (year: number) => {
-    setYear(year+1);
+    setYear(year + 1);
     return;
-  }
+  };
   const prevYear = (year: number) => {
-    setYear(year-1);
-    return ;
-  }
+    setYear(year - 1);
+    return;
+  };
 
   return (
     <StyledWrapper>
       <Container>
         <StyledCalenderHeader>
-          <button onClick={() => prevYear(year)}>{ year -1 }</button>
+          <button onClick={() => prevYear(year)}>{year - 1}</button>
           <Year>{year}</Year>
-          <button onClick={() => nextYear(year)}>{ year + 1}</button>
+          <button onClick={() => nextYear(year)}>{year + 1}</button>
           <div className="description-scales">
             <div>Soft</div>
             <div className="scales">
@@ -75,7 +75,6 @@ const Contributions: React.FC<ContributionProps> = ({ contributions }) => {
         </Calender>
         <ReactTooltip />
       </Container>
-
     </StyledWrapper>
   );
 };
@@ -156,17 +155,16 @@ const StyledCalenderHeader = styled.div`
     background-color: ${MAIN_COLOR.DARK_BLUE};
     border: none;
     border-radius: 20px;
-    transition: .5s;
+    transition: 0.5s;
     cursor: pointer;
     &:hover {
       background-color: ${MAIN_COLOR.NOMAL_BLUE};
     }
   }
-`
+`;
 
 const Calender = styled.div`
   display: inline-block;
   width: 1000px;
   margin-top: 60px;
 `;
-
