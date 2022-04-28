@@ -96,12 +96,18 @@ const Container = styled.div`
   max-width: 1050px;
   white-space: nowrap;
   overflow-x: scroll;
-  border: solid 1px #696969;
+  border: solid 4px ${MAIN_COLOR.DARK_BLUE};
+  border-radius: 4px;
+  padding: 10px;
   position: relative;
 
   .description-scales {
     display: flex;
+    align-items: center;
     margin-left: 8px;
+    padding: 8px;
+    background-color: ${MAIN_COLOR.LIGHT_BLUE};
+    border: 2px solid ${MAIN_COLOR.NOMAL_BLUE};
   }
 
   .scales {
@@ -112,7 +118,6 @@ const Container = styled.div`
     width: 14px;
     height: 14px;
     margin: 2px;
-    background: silver;
     border-radius: 50%;
   }
 
@@ -146,16 +151,22 @@ const StyledCalenderHeader = styled.div`
   justify-content: space-between;
   button {
     margin: 0 8px;
-    height: 20px;
+    padding: 4px;
+    line-height: 20px;
+    background-color: ${MAIN_COLOR.DARK_BLUE};
+    border: none;
+    border-radius: 20px;
+    transition: .5s;
+    cursor: pointer;
+    &:hover {
+      background-color: ${MAIN_COLOR.NOMAL_BLUE};
+    }
   }
 `
 
 const Calender = styled.div`
   display: inline-block;
   width: 1000px;
-  margin: 30px;
-  .react-calendar-heatmap-weekday-label {
-    margin-right: 4px;
-  }
+  margin-top: 60px;
 `;
 
