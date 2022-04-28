@@ -44,6 +44,7 @@ const Contributions = () => {
               }`,
             };
           }}
+          onClick={(value) => console.log(value)}
         />
       </Calender>
       <ReactTooltip />
@@ -71,4 +72,8 @@ const Calender = styled.div`
   display: inline-block;
   width: 1000px;
   margin: 30px;
+  .color-scale-1 { fill: #d6e685; }
+  .color-scale-2 { fill: #8cc665; }
+  .color-scale-3 { fill: #44a340; }
+  .color-scale-4 { fill: #1e6823; }
 `
