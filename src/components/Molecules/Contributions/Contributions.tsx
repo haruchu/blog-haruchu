@@ -4,47 +4,57 @@ import "react-calendar-heatmap/dist/styles.css";
 import ReactTooltip from "react-tooltip";
 import styled from "styled-components";
 
-const Contributions = () => {
+interface ContributionProps {
+  contributions: any;
+}
+
+const Contributions: React.FC<ContributionProps> = ({ contributions }) => {
   const today = new Date(); // 変数が呼ばれた時の日時がDate型で取得できる
   const year = today.getFullYear();
 
   return (
     <Container>
-      <Year>
-        { year }
-      </Year>
+      <Year>{year}</Year>
+      <div className="description-scales">
+        <div>Soft</div>
+        <div className="scales">
+          <div className="scale color-scale-very-soft" data-tip="~2h"></div>
+          <div className="scale color-scale-soft" data-tip="2~4h"></div>
+          <div className="scale color-scale-hard" data-tip="4~7h"></div>
+          <div className="scale color-scale-very-hard" data-tip="7h~"></div>
+        </div>
+        <div>Hard</div>
+      </div>
       <Calender>
         <CalendarHeatmap
           startDate={new Date(year + "-01-01")}
           endDate={new Date(year + "-12-31")}
-          values={[
-            { date: "2022-07-03", count: 1 },
-            { date: "2022-08-22", count: 2 },
-            { date: "2022-07-29", count: 4 },
-            { date: '2022-10-01', count: 1 },
-            { date: '2022-10-03', count: 2 },
-            { date: '2022-10-06', count: 3 },
-            { date: '2022-10-10', count: 4 },
-            { date: '2022-10-07', count: 1 },
-            { date: '2022-09-15', count: 3 },
-          ]}
+          values={contributions}
           classForValue={(value) => {
             if (!value) {
               return "color-empty";
             }
-            return `color-scale-${value.count}`;
+            if (value.totalTime > 7) {
+              return `color-scale-very-hard`;
+            } else if (value.totalTime > 4) {
+              return `color-scale-hard`;
+            } else if (value.totalTime > 2) {
+              return `color-scale-soft`;
+            } else {
+              return `color-scale-very-soft`;
+            }
           }}
-          tooltipDataAttrs={(value: { date: Date; count: number; }) => {
+          tooltipDataAttrs={(value: { date: Date; totalTime: number }) => {
             if (!value || !value.date) {
               return null;
             }
             return {
-              "data-tip": `${value.date} has count: ${
-                value.count
-              }`,
+              "data-tip": `${value.date} ${value.totalTime}h`,
             };
           }}
+          showWeekdayLabels={true}
           onClick={(value) => console.log(value)}
+          gutterSize={2}
         />
       </Calender>
       <ReactTooltip />
@@ -61,19 +71,56 @@ const Container = styled.div`
   overflow-x: scroll;
   border: solid 1px #696969;
   position: relative;
-`
+
+  .description-scales {
+    display: flex;
+    position: fixed;
+    top: 230px;
+    margin: 10px;
+  }
+
+  .scales {
+    display: flex;
+    margin: 0 5px;
+  }
+
+  .scale {
+    width: 14px;
+    height: 14px;
+    margin: 2px;
+    background: silver;
+    border-radius: 50%;
+  }
+
+  .color-scale-very-soft {
+    fill: #d6e685;
+    background-color: #d6e685;
+  }
+  .color-scale-soft {
+    fill: #8cc665;
+    background-color: #8cc665;
+  }
+  .color-scale-hard {
+    fill: #44a340;
+    background-color: #44a340;
+  }
+  .color-scale-very-hard {
+    fill: #1e6823;
+    background-color: #1e6823;
+  }
+`;
 
 const Year = styled.span`
   position: fixed;
   margin: 4px;
-`
+`;
 
 const Calender = styled.div`
   display: inline-block;
   width: 1000px;
   margin: 30px;
-  .color-scale-1 { fill: #d6e685; }
-  .color-scale-2 { fill: #8cc665; }
-  .color-scale-3 { fill: #44a340; }
-  .color-scale-4 { fill: #1e6823; }
-`
+  .react-calendar-heatmap-weekday-label {
+    margin-right: 4px;
+  }
+`;
+
