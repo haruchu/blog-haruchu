@@ -19,6 +19,7 @@ const Textarea: React.FC<TextareaProps> = ({
 
   useEffect(() => {
     TextareaRef.current.value = defaultValue;
+    TextareaRef.current.focus();
 
     const onFocusOut = () => onEditComplete(TextareaRef.current.value);
 
@@ -40,7 +41,7 @@ const Textarea: React.FC<TextareaProps> = ({
 export default Textarea;
 
 const StyledTextarea = styled.textarea`
-  width: 90%;
+  width: 100%;
   height: 400px;
   transition: 0.5s;
   padding: 40px;

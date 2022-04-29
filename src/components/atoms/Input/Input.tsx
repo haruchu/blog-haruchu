@@ -16,6 +16,7 @@ const Input: React.FC<InputProps> = ({ defaultValue = "", onEditComplete }) => {
 
   useEffect(() => {
     InputRef.current.value = defaultValue;
+    InputRef.current.focus();
 
     const onFocusOut = () => onEditComplete(InputRef.current.value);
 

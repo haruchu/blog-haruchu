@@ -7,7 +7,10 @@ import ReactTooltip from "react-tooltip";
 import styled from "styled-components";
 
 interface ContributionProps {
-  contributions: any;
+  contributions: {
+    date: string;
+    totalTime: number;
+  }[];
 }
 
 const Contributions: React.FC<ContributionProps> = ({ contributions }) => {

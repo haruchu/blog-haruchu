@@ -11,6 +11,7 @@ interface ArticleProps {
   onTitleChange: onEditCompleteType;
   article: string;
   onArticleChange: onEditCompleteType;
+  date: string;
 }
 
 const Article: React.FC<ArticleProps> = ({
@@ -18,6 +19,7 @@ const Article: React.FC<ArticleProps> = ({
   onTitleChange,
   article = "",
   onArticleChange,
+  date
 }) => {
   const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [isEditingArticle, setIsEditingArticle] = useState(false);
@@ -33,7 +35,7 @@ const Article: React.FC<ArticleProps> = ({
   };
 
   return (
-    <>
+    <StyledWrapper>
       <StyledTitle>
         {isEditingTitle ? (
           <Input defaultValue={title} onEditComplete={onTitleEditComplete} />
@@ -44,6 +46,11 @@ const Article: React.FC<ArticleProps> = ({
           </>
         )}
       </StyledTitle>
+      <StyledDateWrapper>
+        <StyledDate>
+          投稿日: {date}
+        </StyledDate>
+      </StyledDateWrapper>
       <StyledArticleContent>
         {isEditingArticle ? (
           <Textarea
@@ -52,22 +59,31 @@ const Article: React.FC<ArticleProps> = ({
           />
         ) : (
           <>
-            <StyledArticleText>{article}</StyledArticleText>
-            <EditButton
-              onClick={() => setIsEditingArticle(!isEditingArticle)}
-            />
+              <StyledArticleText>{article}</StyledArticleText>
+              <StyledButtonWrapper>
+                <EditButton
+                  onClick={() => setIsEditingArticle(!isEditingArticle)}
+                />
+              </StyledButtonWrapper>
           </>
         )}
       </StyledArticleContent>
-    </>
+    </StyledWrapper>
   );
 };
 export default Article;
+
+const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 const StyledTitle = styled.div`
   width: 90vw;
   display: flex;
   align-items: center;
+  margin: 30px 0;
 `;
 
 const StyledTitleText = styled.span`
@@ -77,11 +93,34 @@ const StyledTitleText = styled.span`
   width: 100%;
   border-radius: 2px;
   padding: 10px;
+  ${phone`
+    font-size: 20px;
+  `}
 `;
+
+const StyledDateWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin: 20px;
+`
+
+const StyledDate = styled.span`
+  ${phone`
+    font-size: 12px;
+  `}
+`
 
 const StyledArticleContent = styled.div`
   width: 90vw;
   display: flex;
+  position: relative;
+`;
+
+const StyledButtonWrapper = styled.div`
+  position: absolute;
+  right: 10px;
+  top: 30px;
 `;
 
 const StyledArticleText = styled.div`
