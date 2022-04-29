@@ -12,5 +12,7 @@ export default {
 };
 
 export const Basic = () => {
-  return <Input defaultValue={""} onEditComplete={(value) => console.log(value)} />;
+  return (
+    <Input defaultValue={""} onEditComplete={(value) => console.log(value)} />
+  );
 };
