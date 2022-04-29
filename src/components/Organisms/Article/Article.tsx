@@ -1,4 +1,3 @@
-import { MAIN_COLOR } from "../../valiables/Color";
 import React, { useState } from "react";
 import styled from "styled-components";
 import Textarea, { onEditCompleteType } from "../../atoms/Textarea/Textarea";
@@ -19,7 +18,7 @@ const Article: React.FC<ArticleProps> = ({
   onTitleChange,
   article = "",
   onArticleChange,
-  date
+  date,
 }) => {
   const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [isEditingArticle, setIsEditingArticle] = useState(false);
@@ -47,9 +46,7 @@ const Article: React.FC<ArticleProps> = ({
         )}
       </StyledTitle>
       <StyledDateWrapper>
-        <StyledDate>
-          投稿日: {date}
-        </StyledDate>
+        <StyledDate>投稿日: {date}</StyledDate>
       </StyledDateWrapper>
       <StyledArticleContent>
         {isEditingArticle ? (
@@ -59,12 +56,12 @@ const Article: React.FC<ArticleProps> = ({
           />
         ) : (
           <>
-              <StyledArticleText>{article}</StyledArticleText>
-              <StyledButtonWrapper>
-                <EditButton
-                  onClick={() => setIsEditingArticle(!isEditingArticle)}
-                />
-              </StyledButtonWrapper>
+            <StyledArticleText>{article}</StyledArticleText>
+            <StyledButtonWrapper>
+              <EditButton
+                onClick={() => setIsEditingArticle(!isEditingArticle)}
+              />
+            </StyledButtonWrapper>
           </>
         )}
       </StyledArticleContent>
@@ -77,7 +74,7 @@ const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 const StyledTitle = styled.div`
   width: 90vw;
@@ -103,13 +100,13 @@ const StyledDateWrapper = styled.div`
   justify-content: flex-end;
   width: 100%;
   margin: 20px;
-`
+`;
 
 const StyledDate = styled.span`
   ${phone`
     font-size: 12px;
   `}
-`
+`;
 
 const StyledArticleContent = styled.div`
   width: 90vw;
