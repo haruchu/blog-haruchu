@@ -146,6 +146,7 @@ const Year = styled.span`
 const StyledCalenderHeader = styled.div`
   display: flex;
   position: fixed;
+  left: 16px;
   align-items: center;
   justify-content: space-between;
   button {
