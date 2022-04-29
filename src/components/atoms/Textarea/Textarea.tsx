@@ -43,9 +43,10 @@ const StyledTextarea = styled.textarea`
   width: 90%;
   height: 400px;
   transition: 0.5s;
-  padding: 10px;
+  padding: 40px;
   border: none;
   font-size: 16px;
+  position: relative;
   background-color: ${MAIN_COLOR.WHITE_BLUE};
   &:focus {
     outline: none;
