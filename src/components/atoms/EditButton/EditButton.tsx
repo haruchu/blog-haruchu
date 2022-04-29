@@ -10,7 +10,7 @@ interface EditButtonProps {
 
 const EditButton: React.FC<EditButtonProps> = ({ onClick }) => {
   return (
-    <StyledButton onClick={onClick}>
+    <StyledButton className="edit-button" onClick={onClick}>
       <BsFillPencilFill />
     </StyledButton>
   );

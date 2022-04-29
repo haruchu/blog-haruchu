@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { phone } from "../../valiables/BreakPoint";
 
-type onEditCompleteType = (something: string) => void;
+export type onEditCompleteType = (something: string) => void;
 
 interface TextareaProps {
   defaultValue: string;
@@ -34,7 +34,7 @@ const Textarea: React.FC<TextareaProps> = ({
     <StyledTextarea
       ref={TextareaRef}
       style={{ resize: "none", boxSizing: "border-box" }}
-    />
+    ></StyledTextarea>
   );
 };
 export default Textarea;
