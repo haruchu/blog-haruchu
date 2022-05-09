@@ -2,9 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const ContributionsPage: React.FC = () => {
-
-  return (
-    <>ContributionsPage</>
-  );
+  return <>ContributionsPage</>;
 };
 export default ContributionsPage;

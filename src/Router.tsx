@@ -7,9 +7,9 @@ import HomePage from "pages/HomePage";
 export const Router: React.VFC = () => {
   return (
     <Routes>
-      <Route index element={<HomePage/>} />
-      <Route path="articles" element={<ArticlesPage/>} />
-      <Route path="contributions" element={<ContributionsPage/>} />
+      <Route index element={<HomePage />} />
+      <Route path="articles" element={<ArticlesPage />} />
+      <Route path="contributions" element={<ContributionsPage />} />
     </Routes>
   );
 };
