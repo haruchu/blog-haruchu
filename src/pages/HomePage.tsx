@@ -36,6 +36,8 @@ const StyledProfileWrapper = styled.div`
 `;
 
 const StyledProfileIcon = styled.img`
+  border: solid 4px ${MAIN_COLOR.DARK_BLUE};
+  border-radius: 20px;
   width: 200px;
   ${phone`
     width: 80px;

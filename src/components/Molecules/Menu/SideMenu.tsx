@@ -53,7 +53,7 @@ const StyledSideMenu = styled.div<{ isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: ${MAIN_COLOR.LIGHT_BLUE};
+  background-color: ${MAIN_COLOR.NOMAL_BLUE};
   position: fixed;
   top: 0;
   left: 0;
@@ -92,7 +92,7 @@ const StyledProfileIcon = styled.div`
 
 const StyledImg = styled.img`
   border-radius: 50%;
-  border: 4px solid ${MAIN_COLOR.NOMAL_BLUE};
+  border: 4px solid ${MAIN_COLOR.LIGHT_BLUE};
   width: 100%;
 `;
 
