@@ -12,38 +12,27 @@ const BottomMenu: React.FC = () => {
   };
 
   return (
-    <StyledWrapper>
-      <StyledMenu>
-        <StyledLists>
-          {Menu.map(({ name, icon }, index) => {
-            return (
-              <BottomMenuList
-                key={index}
-                listName={name}
-                index={index}
-                openIndex={openIndex}
-                onActive={() => onActive(index)}
-              >
-                {icon}
-              </BottomMenuList>
-            );
-          })}
-          <StyledIndicator className="indicator" />
-        </StyledLists>
-      </StyledMenu>
-    </StyledWrapper>
+    <StyledMenu>
+      <StyledLists>
+        {Menu.map(({ name, icon }, index) => {
+          return (
+            <BottomMenuList
+              key={index}
+              listName={name}
+              index={index}
+              openIndex={openIndex}
+              onActive={() => onActive(index)}
+            >
+              {icon}
+            </BottomMenuList>
+          );
+        })}
+        <StyledIndicator className="indicator" />
+      </StyledLists>
+    </StyledMenu>
   );
 };
 export default BottomMenu;
-
-// 仮のWrapper 後ではずす
-const StyledWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: ${MAIN_COLOR.WHITE_BLUE};
-`;
 
 const StyledMenu = styled.div`
   width: 100%;
@@ -53,6 +42,10 @@ const StyledMenu = styled.div`
   align-content: center;
   justify-content: center;
   border-radius: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
 `;
 
 const StyledLists = styled.ul`

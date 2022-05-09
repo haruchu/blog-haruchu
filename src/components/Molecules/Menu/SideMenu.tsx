@@ -54,6 +54,10 @@ const StyledSideMenu = styled.div<{ isOpen: boolean }>`
   flex-direction: column;
   justify-content: space-around;
   background-color: ${MAIN_COLOR.LIGHT_BLUE};
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
   ${(props) =>
     props.isOpen &&
     css`
