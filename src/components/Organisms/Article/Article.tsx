@@ -80,13 +80,14 @@ const StyledTitle = styled.div`
   width: 90vw;
   display: flex;
   align-items: center;
+  justify-content: center;
   margin: 30px 0;
 `;
 
 const StyledTitleText = styled.span`
   margin-right: 10px;
   font-size: 30px;
-  line-height: 20px;
+  line-height: 35px;
   width: 100%;
   border-radius: 2px;
   padding: 10px;
