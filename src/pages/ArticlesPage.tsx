@@ -4,6 +4,7 @@ import { db } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import styled from "styled-components";
 import ArticleLink from "components/atoms/ArticleLink/ArticleLink";
+import { MAIN_COLOR } from "components/valiables/Color";
 
 
 type Articles = {
@@ -33,16 +34,21 @@ const ArticlesPage: React.FC = () => {
 
 
   return (
-    <>
+    <StyledWrapper>
       <StyledArticleWrapper>
         {articles.map((article) => (
           <ArticleLink key={article.id} title={article.title} tags={article.tags} date={article.date} />
         ))}
       </StyledArticleWrapper>
-    </>
+    </StyledWrapper>
   );
 };
 export default ArticlesPage;
+
+const StyledWrapper = styled.div`
+  background-color: ${MAIN_COLOR.WHITE_BLUE};
+  height: 100vh;
+`
 
 const StyledArticleWrapper = styled.div`
   display: flex;

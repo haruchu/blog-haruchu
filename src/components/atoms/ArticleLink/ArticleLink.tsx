@@ -26,7 +26,7 @@ const ArticleLink: React.FC<ArticleLinkProps> = ({ title, tags, date }) => {
 export default ArticleLink;
 
 const StyledLink = styled.a`
-  border: 6px solid ${MAIN_COLOR.NOMAL_BLUE};
+  border: 6px solid ${MAIN_COLOR.LIGHT_BLUE};
   background-color: #fff;
   color: #000;
   display: flex;
@@ -38,7 +38,7 @@ const StyledLink = styled.a`
   position: relative;
   transition: 0.5s;
   &:hover {
-    border: 6px solid transparent;
+    border: 6px solid ${MAIN_COLOR.DARK_BLUE};
   }
 `;
 
