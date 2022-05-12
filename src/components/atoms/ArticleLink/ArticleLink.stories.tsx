@@ -17,5 +17,5 @@ export const Basic = () => {
     tags: ["フロンドエンド", "バックエンド"],
     date: "2022-04-26",
   };
-  return <ArticleLink article={article} />;
+  return <ArticleLink title={article.title} tags={article.tags} date={article.date} />;
 };

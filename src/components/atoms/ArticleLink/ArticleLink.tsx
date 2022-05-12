@@ -3,25 +3,23 @@ import React from "react";
 import styled from "styled-components";
 
 export interface ArticleLinkProps {
-  article: {
-    title: string;
-    tags: string[];
-    date: string;
-  };
+  title: string;
+  tags: string[];
+  date: string;
 }
 
-const ArticleLink: React.FC<ArticleLinkProps> = ({ article }) => {
+const ArticleLink: React.FC<ArticleLinkProps> = ({ title, tags, date }) => {
   return (
     <StyledLink href="#">
-      <StyledLinkTitle>{article.title}</StyledLinkTitle>
+      <StyledLinkTitle>{title}</StyledLinkTitle>
       <StyledTags>
-        {article.tags.map((tag, index) => (
-          <StyledTag key={index} href="#" index={index}>
+        {tags.map((tag, index) => (
+          <StyledTag key={index} index={index}>
             {tag}
           </StyledTag>
         ))}
       </StyledTags>
-      <StyledDate>{article.date}</StyledDate>
+      <StyledDate>{date}</StyledDate>
     </StyledLink>
   );
 };
@@ -55,7 +53,7 @@ const StyledTags = styled.div`
   margin: 8px;
 `;
 
-const StyledTag = styled.a<{ index: number }>`
+const StyledTag = styled.span<{ index: number }>`
   display: block;
   width: auto;
   padding: 2px 6px;

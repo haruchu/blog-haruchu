@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import styled from "styled-components";
-import ArticleLink from "components/atoms/article/ArticleLink";
+import ArticleLink from "components/atoms/ArticleLink/ArticleLink";
 
 
 type Articles = {
@@ -35,7 +35,7 @@ const ArticlesPage: React.FC = () => {
   return (
     <>
       {articles.map((article) => (
-        <div key={article.id}>{article.title}</div>
+        <ArticleLink key={article.id} title={article.title} tags={article.tags} date={article.date} />
       ))}
     </>
   );
