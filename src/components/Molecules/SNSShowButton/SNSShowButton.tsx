@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { GithubIcon, InstaIcon, MailIcon, TwitterIcon } from "./SNSIcons";
 import ProfileIcon from "../../assets/profile.jpg";
 
-const SideMenu: React.FC = () => {
+const SNSShowButton: React.FC = () => {
   const [isShow, setIsShow] = useState(false);
 
   return (
@@ -29,7 +29,7 @@ const SideMenu: React.FC = () => {
     </>
   );
 };
-export default SideMenu;
+export default SNSShowButton;
 
 const StyledButton = styled.button`
   outline: none;

@@ -8,13 +8,14 @@ import SideMenu from "components/Molecules/Menu/SideMenu";
 import BottomMenu from "components/Molecules/Menu/BottomMenu";
 import styled from "styled-components";
 import NotFoundPage from "pages/NotFoundPage";
+import SNSShowButton from "components/Molecules/SNSShowButton/SNSShowButton";
 
 export const Router: React.VFC = () => {
   const isWide = useMedia({ minWidth: "1025px" });
 
   return (
     <>
-      {isWide ? <SideMenu /> : <BottomMenu />}
+      {isWide ? <SideMenu /> : <><BottomMenu /><SNSShowButton/></>}
       <Routes>
         <Route index element={<HomePage />} />
         <Route path="articles" element={<ArticlesPage />} />

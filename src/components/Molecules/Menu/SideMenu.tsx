@@ -1,5 +1,5 @@
 import SideMenuList from "../../atoms/MenuList/SideMenuList";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Menu } from "./Menu";
 import styled, { css } from "styled-components";
 import ProfileIcon from "../../assets/profile.jpg";
