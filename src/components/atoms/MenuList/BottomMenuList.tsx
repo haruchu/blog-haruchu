@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export interface MenuListProps {
   listName: string;
+  path: string;
   children: ReactNode;
   index: number;
   openIndex: number;
@@ -11,6 +12,7 @@ export interface MenuListProps {
 
 const BottomMenuList: React.FC<MenuListProps> = ({
   listName,
+  path,
   children,
   index,
   openIndex,
@@ -22,7 +24,7 @@ const BottomMenuList: React.FC<MenuListProps> = ({
       isOpen={index == openIndex ? true : false}
       onClick={onActive}
     >
-      <StyledLink href="#">
+      <StyledLink href={path}>
         <StyledIcon className="icon">{children}</StyledIcon>
         <StyledText className="text">{listName}</StyledText>
       </StyledLink>

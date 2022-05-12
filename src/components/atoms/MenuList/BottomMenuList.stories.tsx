@@ -20,6 +20,7 @@ export const isActive = () => {
   return (
     <BottomMenuList
       listName={"Home"}
+      path="/"
       index={1}
       openIndex={1}
       onActive={onActive}
@@ -37,6 +38,7 @@ export const notActive = () => {
   return (
     <BottomMenuList
       listName={"Home"}
+      path="/"
       index={1}
       openIndex={2}
       onActive={onActive}

@@ -14,11 +14,12 @@ const BottomMenu: React.FC = () => {
   return (
     <StyledMenu>
       <StyledLists>
-        {Menu.map(({ name, icon }, index) => {
+        {Menu.map(({ name, icon, path }, index) => {
           return (
             <BottomMenuList
               key={index}
               listName={name}
+              path={path}
               index={index}
               openIndex={openIndex}
               onActive={() => onActive(index)}

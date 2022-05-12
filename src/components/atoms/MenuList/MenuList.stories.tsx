@@ -14,7 +14,7 @@ export default {
 
 export const isOpen = () => {
   return (
-    <SideMenuList listName={"Home"} isOpen={true}>
+    <SideMenuList listName={"Home"} isOpen={true} path="/home">
       <AiOutlineHome />
     </SideMenuList>
   );
@@ -22,7 +22,7 @@ export const isOpen = () => {
 
 export const isClose = () => {
   return (
-    <SideMenuList listName={"Home"} isOpen={false}>
+    <SideMenuList listName={"Home"} isOpen={false} path="/home">
       <AiOutlineHome />
     </SideMenuList>
   );

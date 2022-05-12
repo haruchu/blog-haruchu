@@ -5,17 +5,19 @@ import styled from "styled-components";
 export interface MenuListProps {
   children: ReactNode;
   listName: string;
+  path: string;
   isOpen: boolean;
 }
 
 const SideMenuList: React.FC<MenuListProps> = ({
   children,
   listName,
+  path,
   isOpen,
 }) => {
   return (
     <StyledMenuList>
-      <StyledLink>
+      <StyledLink href={path}>
         {children}
         <StyledListName isOpen={isOpen}>{listName}</StyledListName>
       </StyledLink>
@@ -42,6 +44,8 @@ const StyledLink = styled.a`
   font-size: 16px;
   font-weight: 800;
   box-sizing: border-box;
+  color: #000;
+  text-decoration: none;
   svg {
     min-width: 24px;
     font-size: 24px;

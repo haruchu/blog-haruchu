@@ -7,13 +7,16 @@ export const Menu = [
   {
     name: "Home",
     icon: <AiOutlineHome />,
+    path: "/"
   },
   {
     name: "Articles",
     icon: <MdOutlineArticle />,
+    path: "/articles"
   },
   {
-    name: "Calendar",
+    name: "Contributions",
     icon: <BsCalendarWeek />,
+    path: "/contributions"
   },
 ];

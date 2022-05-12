@@ -34,10 +34,18 @@ const ArticlesPage: React.FC = () => {
 
   return (
     <>
-      {articles.map((article) => (
-        <ArticleLink key={article.id} title={article.title} tags={article.tags} date={article.date} />
-      ))}
+      <StyledArticleWrapper>
+        {articles.map((article) => (
+          <ArticleLink key={article.id} title={article.title} tags={article.tags} date={article.date} />
+        ))}
+      </StyledArticleWrapper>
     </>
   );
 };
 export default ArticlesPage;
+
+const StyledArticleWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+`

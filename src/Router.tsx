@@ -7,6 +7,7 @@ import useMedia from "use-media";
 import SideMenu from "components/Molecules/Menu/SideMenu";
 import BottomMenu from "components/Molecules/Menu/BottomMenu";
 import styled from "styled-components";
+import NotFoundPage from "pages/NotFoundPage";
 
 export const Router: React.VFC = () => {
   const isWide = useMedia({ minWidth: "1025px" });
@@ -17,6 +18,7 @@ export const Router: React.VFC = () => {
         <Route index element={<HomePage />} />
         <Route path="articles" element={<ArticlesPage />} />
         <Route path="contributions" element={<ContributionsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
