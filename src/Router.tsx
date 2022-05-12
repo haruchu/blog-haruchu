@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import ArticlesPage from "pages/ArticlesPage";
 import ContributionsPage from "pages/ContributionsPage";
@@ -11,6 +11,7 @@ import NotFoundPage from "pages/NotFoundPage";
 
 export const Router: React.VFC = () => {
   const isWide = useMedia({ minWidth: "1025px" });
+
   return (
     <>
       {isWide ? <SideMenu /> : <BottomMenu />}

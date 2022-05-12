@@ -3,13 +3,19 @@ import { Menu } from "./Menu";
 import styled from "styled-components";
 import BottomMenuList from "../../atoms/MenuList/BottomMenuList";
 import { MAIN_COLOR } from "../../valiables/Color";
+import { useLocation } from "react-router-dom";
 
 const BottomMenu: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState(0);
-
-  const onActive = (index: number) => {
-    setOpenIndex(index);
-  };
+  let openIndex = 0;
+  const location = useLocation();
+  console.log(location.pathname);
+  if (location.pathname == "/") {
+    openIndex = 0;
+  } else if (location.pathname == "/articles") {
+    openIndex = 1;
+  } else {
+    openIndex = 2;
+  }
 
   return (
     <StyledMenu>
@@ -22,7 +28,6 @@ const BottomMenu: React.FC = () => {
               path={path}
               index={index}
               openIndex={openIndex}
-              onActive={() => onActive(index)}
             >
               {icon}
             </BottomMenuList>
@@ -47,6 +52,7 @@ const StyledMenu = styled.div`
   left: 0;
   bottom: 0;
   z-index: 99;
+  border-top: 10px solid ${MAIN_COLOR.WHITE_BLUE};
 `;
 
 const StyledLists = styled.ul`

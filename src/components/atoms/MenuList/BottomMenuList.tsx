@@ -7,7 +7,6 @@ export interface MenuListProps {
   children: ReactNode;
   index: number;
   openIndex: number;
-  onActive: React.MouseEventHandler<HTMLLIElement>;
 }
 
 const BottomMenuList: React.FC<MenuListProps> = ({
@@ -16,13 +15,11 @@ const BottomMenuList: React.FC<MenuListProps> = ({
   children,
   index,
   openIndex,
-  onActive,
 }) => {
   return (
     <StyledList
       index={index}
       isOpen={index == openIndex ? true : false}
-      onClick={onActive}
     >
       <StyledLink href={path}>
         <StyledIcon className="icon">{children}</StyledIcon>
