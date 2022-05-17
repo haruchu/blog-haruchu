@@ -6,7 +6,6 @@ import styled from "styled-components";
 import ArticleLink from "components/atoms/ArticleLink/ArticleLink";
 import { MAIN_COLOR } from "components/valiables/Color";
 
-
 type Articles = {
   id: string;
   title: string;
@@ -29,7 +28,6 @@ const ArticlesPage: React.FC = () => {
       });
       setArticles(newArticles);
     });
-    console.log(articles);
   }, []);
 
 
@@ -37,7 +35,7 @@ const ArticlesPage: React.FC = () => {
     <StyledWrapper>
       <StyledArticleWrapper>
         {articles.map((article) => (
-          <ArticleLink key={article.id} title={article.title} tags={article.tags} date={article.date} />
+          <ArticleLink key={article.id} id={article.id} title={article.title} tags={article.tags} date={article.date} />
         ))}
       </StyledArticleWrapper>
     </StyledWrapper>
@@ -53,5 +51,6 @@ const StyledWrapper = styled.div`
 const StyledArticleWrapper = styled.div`
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin: 0 auto;
 `

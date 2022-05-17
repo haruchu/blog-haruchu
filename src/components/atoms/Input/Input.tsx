@@ -40,7 +40,7 @@ const StyledInput = styled.input`
   line-height: 35px;
   width: 100%;
   border-radius: 2px;
-  padding: 10px;
+  padding: 10px 10px 10px 30px;
   transition: 0.5s;
   background-color: ${MAIN_COLOR.WHITE_BLUE};
   &:focus {

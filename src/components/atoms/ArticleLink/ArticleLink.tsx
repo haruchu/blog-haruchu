@@ -3,14 +3,15 @@ import React from "react";
 import styled from "styled-components";
 
 export interface ArticleLinkProps {
+  id: string;
   title: string;
   tags: string[];
   date: string;
 }
 
-const ArticleLink: React.FC<ArticleLinkProps> = ({ title, tags, date }) => {
+const ArticleLink: React.FC<ArticleLinkProps> = ({ id, title, tags, date }) => {
   return (
-    <StyledLink href="#">
+    <StyledLink href={"articles/" + id}>
       <StyledLinkTitle>{title}</StyledLinkTitle>
       <StyledTags>
         {tags.map((tag, index) => (
@@ -33,6 +34,7 @@ const StyledLink = styled.a`
   flex-direction: column;
   width: 400px;
   padding: 20px;
+  margin: 10px;
   border-radius: 20px;
   text-decoration: none;
   position: relative;

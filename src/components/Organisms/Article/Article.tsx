@@ -40,8 +40,10 @@ const Article: React.FC<ArticleProps> = ({
           <Input defaultValue={title} onEditComplete={onTitleEditComplete} />
         ) : (
           <>
-            <StyledTitleText>{title}</StyledTitleText>
-            <EditButton onClick={() => setIsEditingTitle(!isEditingTitle)} />
+              <StyledTitleText>{title}</StyledTitleText>
+              <StyledTitleEditButtonWrapper>
+                <EditButton onClick={() => setIsEditingTitle(!isEditingTitle)} />
+              </StyledTitleEditButtonWrapper>
           </>
         )}
       </StyledTitle>
@@ -57,11 +59,11 @@ const Article: React.FC<ArticleProps> = ({
         ) : (
           <>
             <StyledArticleText>{article}</StyledArticleText>
-            <StyledButtonWrapper>
+            <StyledContentEditButtonWrapper>
               <EditButton
                 onClick={() => setIsEditingArticle(!isEditingArticle)}
               />
-            </StyledButtonWrapper>
+            </StyledContentEditButtonWrapper>
           </>
         )}
       </StyledArticleContent>
@@ -74,6 +76,7 @@ const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 `;
 
 const StyledTitle = styled.div`
@@ -81,19 +84,28 @@ const StyledTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 30px 0;
+  margin: 30px;
+  position: relative;
 `;
 
 const StyledTitleText = styled.span`
-  margin-right: 10px;
   font-size: 30px;
   line-height: 35px;
   width: 100%;
   border-radius: 2px;
-  padding: 10px;
+  padding: 10px 10px 10px 30px;
   ${phone`
     font-size: 20px;
   `}
+`;
+
+const StyledTitleEditButtonWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+
 `;
 
 const StyledDateWrapper = styled.div`
@@ -104,6 +116,7 @@ const StyledDateWrapper = styled.div`
 `;
 
 const StyledDate = styled.span`
+  margin-right: 20px;
   ${phone`
     font-size: 12px;
   `}
@@ -115,7 +128,7 @@ const StyledArticleContent = styled.div`
   position: relative;
 `;
 
-const StyledButtonWrapper = styled.div`
+const StyledContentEditButtonWrapper = styled.div`
   position: absolute;
   right: 10px;
   top: 30px;
@@ -126,6 +139,7 @@ const StyledArticleText = styled.div`
   height: 400px;
   padding: 40px;
   font-size: 16px;
+  box-sizing: border-box;
   ${phone`
     font-size: 12px;
   `}

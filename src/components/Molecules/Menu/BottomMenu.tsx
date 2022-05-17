@@ -8,10 +8,10 @@ import { useLocation } from "react-router-dom";
 const BottomMenu: React.FC = () => {
   let openIndex = 0;
   const location = useLocation();
-  console.log(location.pathname);
-  if (location.pathname == "/") {
+  const pathname = location.pathname.split("/")[1];
+  if (pathname == "") {
     openIndex = 0;
-  } else if (location.pathname == "/articles") {
+  } else if (pathname == "articles") {
     openIndex = 1;
   } else {
     openIndex = 2;
