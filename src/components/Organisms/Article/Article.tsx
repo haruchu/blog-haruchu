@@ -48,7 +48,7 @@ const Article: React.FC<ArticleProps> = ({
         )}
       </StyledTitle>
       <StyledDateWrapper>
-        <StyledDate>投稿日: {date}</StyledDate>
+        <StyledDate>更新日: {date}</StyledDate>
       </StyledDateWrapper>
       <StyledArticleContent>
         {isEditingArticle ? (
@@ -94,6 +94,7 @@ const StyledTitleText = styled.span`
   width: 100%;
   border-radius: 2px;
   padding: 10px 10px 10px 30px;
+  text-align: center;
   ${phone`
     font-size: 20px;
   `}

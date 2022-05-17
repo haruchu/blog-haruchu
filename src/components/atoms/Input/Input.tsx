@@ -42,6 +42,7 @@ const StyledInput = styled.input`
   border-radius: 2px;
   padding: 10px 10px 10px 30px;
   transition: 0.5s;
+  text-align: center;
   background-color: ${MAIN_COLOR.WHITE_BLUE};
   &:focus {
     background-color: ${MAIN_COLOR.LIGHT_BLUE};
