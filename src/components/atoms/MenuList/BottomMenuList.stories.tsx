@@ -13,28 +13,16 @@ export default {
 };
 
 export const isActive = () => {
-
   return (
-    <BottomMenuList
-      listName={"Home"}
-      path="/"
-      index={1}
-      openIndex={1}
-    >
+    <BottomMenuList listName={"Home"} path="/" index={1} openIndex={1}>
       <AiOutlineHome />
     </BottomMenuList>
   );
 };
 
 export const notActive = () => {
-
   return (
-    <BottomMenuList
-      listName={"Home"}
-      path="/"
-      index={1}
-      openIndex={2}
-    >
+    <BottomMenuList listName={"Home"} path="/" index={1} openIndex={2}>
       <AiOutlineHome />
     </BottomMenuList>
   );

@@ -16,7 +16,14 @@ export const Router: React.VFC = () => {
 
   return (
     <>
-      {isWide ? <SideMenu /> : <><BottomMenu /><SNSShowButton/></>}
+      {isWide ? (
+        <SideMenu />
+      ) : (
+        <>
+          <BottomMenu />
+          <SNSShowButton />
+        </>
+      )}
       <Routes>
         <Route index element={<HomePage />} />
         <Route path="articles" element={<ArticlesPage />} />

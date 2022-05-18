@@ -9,7 +9,7 @@ export const firebaseConfig = {
   storageBucket: "blog-haruchu.appspot.com",
   messagingSenderId: "868496842959",
   appId: "1:868496842959:web:710479a2133db37f77d7ba",
-  measurementId: "G-2X24ZJL131"
+  measurementId: "G-2X24ZJL131",
 };
 
 // Initialize Firebase

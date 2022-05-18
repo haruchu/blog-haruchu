@@ -35,7 +35,7 @@ const SideMenu: React.FC = () => {
         </StyledSNSIcons>
       </StyledInfo>
       <StyledMenuLists>
-        {Menu.map(({name, path, icon}, index) => (
+        {Menu.map(({ name, path, icon }, index) => (
           <SideMenuList listName={name} path={path} key={index} isOpen={isOpen}>
             {icon}
           </SideMenuList>

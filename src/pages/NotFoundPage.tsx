@@ -8,4 +8,4 @@ export default NotFoundPage;
 
 const StyledNotText = styled.h2`
   text-align: center;
-`
+`;

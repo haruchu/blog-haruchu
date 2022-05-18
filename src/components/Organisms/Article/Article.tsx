@@ -4,10 +4,15 @@ import Textarea, { onEditCompleteType } from "../../atoms/Textarea/Textarea";
 import Input from "../../atoms/Input/Input";
 import EditButton from "../../atoms/EditButton/EditButton";
 import { phone } from "../../valiables/BreakPoint";
+import AddTagInput from "components/atoms/AddTagInput/AddTagInput";
+import { COLOR, MAIN_COLOR } from "components/valiables/Color";
+import { RiDeleteBack2Fill } from "react-icons/ri";
 
 interface ArticleProps {
   title: string;
   onTitleChange: onEditCompleteType;
+  tags: string[];
+  updateTag: (something: string[]) => void;
   article: string;
   onArticleChange: onEditCompleteType;
   date: string;
@@ -16,6 +21,8 @@ interface ArticleProps {
 const Article: React.FC<ArticleProps> = ({
   title = "",
   onTitleChange,
+  tags = [],
+  updateTag,
   article = "",
   onArticleChange,
   date,
@@ -33,23 +40,49 @@ const Article: React.FC<ArticleProps> = ({
     onArticleChange(value);
   };
 
+  const onDeleteTag = (index: number) => {
+    const newTags = [...tags];
+    newTags.splice(index, 1);
+    updateTag(newTags);
+  };
+
+  const onAddTag = (value: string) => {
+    const newTags = [...tags, value];
+    updateTag(newTags);
+  };
+
   return (
     <StyledWrapper>
-      <StyledTitle>
-        {isEditingTitle ? (
-          <Input defaultValue={title} onEditComplete={onTitleEditComplete} />
-        ) : (
-          <>
+      <StyledArticleHeader>
+        <StyledTitle>
+          {isEditingTitle ? (
+            <Input defaultValue={title} onEditComplete={onTitleEditComplete} />
+          ) : (
+            <>
               <StyledTitleText>{title}</StyledTitleText>
               <StyledTitleEditButtonWrapper>
-                <EditButton onClick={() => setIsEditingTitle(!isEditingTitle)} />
+                <EditButton
+                  onClick={() => setIsEditingTitle(!isEditingTitle)}
+                />
               </StyledTitleEditButtonWrapper>
-          </>
-        )}
-      </StyledTitle>
-      <StyledDateWrapper>
-        <StyledDate>更新日: {date}</StyledDate>
-      </StyledDateWrapper>
+            </>
+          )}
+        </StyledTitle>
+        <StyledDateWrapper>
+          <StyledDate>更新日: {date}</StyledDate>
+        </StyledDateWrapper>
+      </StyledArticleHeader>
+      <StyledTagsWrapper>
+        {tags.map((tag, index) => (
+          <StyledTag key={index} index={index}>
+            {tag}
+            <StyledDeleteTagButton onClick={() => onDeleteTag(index)}>
+              <RiDeleteBack2Fill />
+            </StyledDeleteTagButton>
+          </StyledTag>
+        ))}
+        <AddTagInput onEditComplete={(value) => onAddTag(value)} />
+      </StyledTagsWrapper>
       <StyledArticleContent>
         {isEditingArticle ? (
           <Textarea
@@ -76,7 +109,11 @@ const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+`;
+
+const StyledArticleHeader = styled.div`
+  width: 100%;
 `;
 
 const StyledTitle = styled.div`
@@ -106,13 +143,67 @@ const StyledTitleEditButtonWrapper = styled.div`
   right: 0;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
+`;
 
+const StyledTagsWrapper = styled.div`
+  width: 90%;
+  display: flex;
+  justify-content: center;
+`;
+
+const StyledTag = styled.span<{ index: number }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  padding: 2px 36px 2px 10px;
+  margin: 0 4px;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: 0.5s;
+  position: relative;
+  ${(props) => `
+    background-color: ${COLOR[props.index % 7]};
+    color: ${COLOR[(props.index + 3) % 7]};
+  `}
+  &:hover {
+    ${(props) => `
+      color: ${COLOR[props.index % 7]};
+      background-color: ${COLOR[(props.index + 3) % 7]};
+  `}
+  }
+`;
+
+const StyledDeleteTagButton = styled.button`
+  background-color: transparent;
+  display: flex;
+  padding: 8px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transition: 0.5s;
+  background-color: ${MAIN_COLOR.DARK_BLUE};
+  &:hover {
+    background-color: ${MAIN_COLOR.LIGHT_BLUE};
+  }
 `;
 
 const StyledDateWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
-  width: 100%;
   margin: 20px;
 `;
 
