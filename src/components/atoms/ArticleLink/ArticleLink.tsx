@@ -31,13 +31,15 @@ const StyledLink = styled.a`
   background-color: #fff;
   color: #000;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  width: 400px;
+  width: 280px;
+  max-width: 280px;
   padding: 20px;
   margin: 10px;
   border-radius: 20px;
   text-decoration: none;
-  position: relative;
   transition: 0.5s;
   &:hover {
     border: 6px solid ${MAIN_COLOR.DARK_BLUE};
@@ -51,6 +53,7 @@ const StyledLinkTitle = styled.h4`
 `;
 
 const StyledTagsWrapper = styled.div`
+  width: 80%;
   height: 20px;
   display: flex;
   overflow-x: scroll;
