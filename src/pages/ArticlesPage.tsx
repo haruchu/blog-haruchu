@@ -16,7 +16,7 @@ type Articles = {
   date: string;
 };
 
-const CreateNewArticle = async() => {
+const CreateNewArticle = async () => {
   const today = new Date();
   const docRef = await addDoc(collection(db, "articles"), {
     title: "",
@@ -25,7 +25,7 @@ const CreateNewArticle = async() => {
     content: "",
   });
   window.location.href = "/articles/" + docRef.id;
-}
+};
 
 const ArticlesPage: React.FC = () => {
   const [articles, setArticles] = useState<Articles[]>([]);
@@ -57,7 +57,9 @@ const ArticlesPage: React.FC = () => {
           />
         ))}
       </StyledArticleWrapper>
-      <NewArticleButton onClick={CreateNewArticle}><GrAdd/></NewArticleButton>
+      <NewArticleButton onClick={CreateNewArticle}>
+        <GrAdd />
+      </NewArticleButton>
     </StyledWrapper>
   );
 };
@@ -95,8 +97,8 @@ const NewArticleButton = styled.button`
   border-radius: 50%;
   padding: 10px;
   cursor: pointer;
-  transition: .5s;
-  &:hover{
+  transition: 0.5s;
+  &:hover {
     background-color: ${MAIN_COLOR.DARK_BLUE};
   }
-`
+`;

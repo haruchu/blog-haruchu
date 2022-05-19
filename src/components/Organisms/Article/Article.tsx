@@ -72,16 +72,16 @@ const Article: React.FC<ArticleProps> = ({
           <StyledDate>更新日: {date}</StyledDate>
         </StyledDateWrapper>
         <StyledTagsWrapper>
-        {tags.map((tag, index) => (
-          <StyledTag key={index} index={index}>
-            {tag}
-            <StyledDeleteTagButton onClick={() => onDeleteTag(index)}>
-              <RiDeleteBack2Fill />
-            </StyledDeleteTagButton>
-          </StyledTag>
-        ))}
-        <AddTagInput onEditComplete={(value) => onAddTag(value)} />
-      </StyledTagsWrapper>
+          {tags.map((tag, index) => (
+            <StyledTag key={index} index={index}>
+              {tag}
+              <StyledDeleteTagButton onClick={() => onDeleteTag(index)}>
+                <RiDeleteBack2Fill />
+              </StyledDeleteTagButton>
+            </StyledTag>
+          ))}
+          <AddTagInput onEditComplete={(value) => onAddTag(value)} />
+        </StyledTagsWrapper>
       </StyledArticleHeader>
       <StyledArticleContent>
         {isEditingArticle ? (
@@ -168,7 +168,7 @@ const StyledTagsWrapper = styled.div`
   display: flex;
   overflow-x: scroll;
   white-space: nowrap;
-  &::-webkit-scrollbar{
+  &::-webkit-scrollbar {
     display: none;
   }
 `;

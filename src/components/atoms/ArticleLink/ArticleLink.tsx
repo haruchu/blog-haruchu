@@ -58,7 +58,7 @@ const StyledTagsWrapper = styled.div`
   display: flex;
   overflow-x: scroll;
   white-space: nowrap;
-  &::-webkit-scrollbar{
+  &::-webkit-scrollbar {
     display: none;
   }
 `;
