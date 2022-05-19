@@ -14,7 +14,7 @@ const BottomMenu: React.FC = () => {
   } else if (pathname == "articles") {
     openIndex = 1;
   } else if (pathname == "product") {
-    openIndex = 2
+    openIndex = 2;
   } else {
     openIndex = 2;
   }

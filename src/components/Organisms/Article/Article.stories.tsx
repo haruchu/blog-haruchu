@@ -21,6 +21,7 @@ export const Basic = () => {
       article="記事ですよぉ"
       onArticleChange={() => console.log("記事を編集したお")}
       date="2022-04-29"
+      isAdmin={true}
     />
   );
 };

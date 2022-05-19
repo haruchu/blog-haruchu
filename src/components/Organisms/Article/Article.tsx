@@ -16,6 +16,7 @@ interface ArticleProps {
   article: string;
   onArticleChange: onEditCompleteType;
   date: string;
+  isAdmin: boolean;
 }
 
 const Article: React.FC<ArticleProps> = ({
@@ -26,6 +27,7 @@ const Article: React.FC<ArticleProps> = ({
   article = "",
   onArticleChange,
   date,
+  isAdmin,
 }) => {
   const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [isEditingArticle, setIsEditingArticle] = useState(false);
@@ -60,11 +62,13 @@ const Article: React.FC<ArticleProps> = ({
           ) : (
             <>
               <StyledTitleText>{title}</StyledTitleText>
-              <StyledTitleEditButtonWrapper>
-                <EditButton
-                  onClick={() => setIsEditingTitle(!isEditingTitle)}
-                />
-              </StyledTitleEditButtonWrapper>
+              {isAdmin ? (
+                <StyledTitleEditButtonWrapper>
+                  <EditButton
+                    onClick={() => setIsEditingTitle(!isEditingTitle)}
+                  />
+                </StyledTitleEditButtonWrapper>
+              ) : null}
             </>
           )}
         </StyledTitle>
@@ -75,12 +79,16 @@ const Article: React.FC<ArticleProps> = ({
           {tags.map((tag, index) => (
             <StyledTag key={index} index={index}>
               {tag}
-              <StyledDeleteTagButton onClick={() => onDeleteTag(index)}>
-                <RiDeleteBack2Fill />
-              </StyledDeleteTagButton>
+              {isAdmin ? (
+                <StyledDeleteTagButton onClick={() => onDeleteTag(index)}>
+                  <RiDeleteBack2Fill />
+                </StyledDeleteTagButton>
+              ) : null}
             </StyledTag>
           ))}
-          <AddTagInput onEditComplete={(value) => onAddTag(value)} />
+          {isAdmin ? (
+            <AddTagInput onEditComplete={(value) => onAddTag(value)} />
+          ) : null}
         </StyledTagsWrapper>
       </StyledArticleHeader>
       <StyledArticleContent>
@@ -92,11 +100,13 @@ const Article: React.FC<ArticleProps> = ({
         ) : (
           <>
             <StyledArticleText>{article}</StyledArticleText>
-            <StyledContentEditButtonWrapper>
-              <EditButton
-                onClick={() => setIsEditingArticle(!isEditingArticle)}
-              />
-            </StyledContentEditButtonWrapper>
+            {isAdmin ? (
+              <StyledContentEditButtonWrapper>
+                <EditButton
+                  onClick={() => setIsEditingArticle(!isEditingArticle)}
+                />
+              </StyledContentEditButtonWrapper>
+            ) : null}
           </>
         )}
       </StyledArticleContent>

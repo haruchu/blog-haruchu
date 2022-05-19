@@ -12,50 +12,6 @@ const ArticlePage: React.FC = () => {
   const usersCollectionRef = id && doc(db, "articles", id);
   let article: any;
 
-  const TitleChange = async (id: string, title: string, article: any) => {
-    const today = new Date();
-    await setDoc(
-      doc(db, "articles", id),
-      {
-        title: title,
-        content: article.content,
-        date: dayjs(today).locale("ja").format("YYYY/MM/DD(dd)"),
-        tags: article.tags,
-      },
-      { merge: true }
-    );
-    window.location.reload();
-  };
-
-  const ContentChange = async (id: string, content: string, article: any) => {
-    const today = new Date();
-    await setDoc(
-      doc(db, "articles", id),
-      {
-        title: article.title,
-        content: content,
-        date: dayjs(today).locale("ja").format("YYYY/MM/DD(dd)"),
-        tags: article.tags,
-      },
-      { merge: true }
-    );
-    window.location.reload();
-  };
-
-  const updateTags = async (id: string, tags: string[], article: any) => {
-    await setDoc(
-      doc(db, "articles", id),
-      {
-        title: article.title,
-        content: article.content,
-        date: article.date,
-        tags: tags,
-      },
-      { merge: true }
-    );
-    window.location.reload();
-  };
-
   useEffect(() => {
     if (
       typeof id !== "undefined" &&
@@ -68,12 +24,13 @@ const ArticlePage: React.FC = () => {
         const articleDOM = (
           <Article
             title={article.title}
-            onTitleChange={(title) => TitleChange(id, title, article)}
+            onTitleChange={(title) => console.log(title)}
             tags={article.tags}
-            updateTag={(tags) => updateTags(id, tags, article)}
+            updateTag={(tags) => console.log(tags)}
             article={article.content}
-            onArticleChange={(content) => ContentChange(id, content, article)}
+            onArticleChange={(content) => console.log(content)}
             date={article.date}
+            isAdmin={false}
           />
         );
         const articleDiv = document.getElementById("article");

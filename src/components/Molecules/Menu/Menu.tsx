@@ -18,5 +18,5 @@ export const Menu = [
     name: "Product",
     icon: <BsBox />,
     path: "/product",
-  }
+  },
 ];

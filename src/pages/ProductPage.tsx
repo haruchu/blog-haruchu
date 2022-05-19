@@ -4,14 +4,18 @@ import React from "react";
 import styled from "styled-components";
 
 const ProductPage: React.FC = () => {
-
   return (
     <StyledWrapper>
       <h2>Product</h2>
       <StyledProductArticle>
-        <StyledGithubLink href="https://github.com/haruchu/final-assignment"><img src="https://gh-card.dev/repos/haruchu/final-assignment.svg" /></StyledGithubLink>
+        <StyledGithubLink href="https://github.com/haruchu/final-assignment">
+          <img src="https://gh-card.dev/repos/haruchu/final-assignment.svg" />
+        </StyledGithubLink>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis veritatis dolorum dolores amet! Perferendis, dolorem. Voluptatem quis veniam dolore possimus eos non. Sed amet accusantium quas. Aut quasi eius qui.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+          veritatis dolorum dolores amet! Perferendis, dolorem. Voluptatem quis
+          veniam dolore possimus eos non. Sed amet accusantium quas. Aut quasi
+          eius qui.
         </p>
       </StyledProductArticle>
     </StyledWrapper>
@@ -26,7 +30,7 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: ${MAIN_COLOR.WHITE_BLUE};
-`
+`;
 
 const StyledProductArticle = styled.div`
   display: flex;
@@ -36,7 +40,7 @@ const StyledProductArticle = styled.div`
   margin: 10px 0;
   border: 6px solid ${MAIN_COLOR.LIGHT_BLUE};
   border-radius: 20px;
-  transition: .5s;
+  transition: 0.5s;
   &:hover {
     border: 6px solid ${MAIN_COLOR.DARK_BLUE};
   }
@@ -51,10 +55,8 @@ const StyledProductArticle = styled.div`
         width: 90%;
       }
   `}
-`
+`;
 
 const StyledGithubLink = styled.a`
   overflow: scroll;
-
-`
-
+`;
