@@ -51,7 +51,6 @@ const StyledLinkTitle = styled.h4`
 `;
 
 const StyledTagsWrapper = styled.div`
-  width: 80vw;
   height: 20px;
   display: flex;
   overflow-x: scroll;
