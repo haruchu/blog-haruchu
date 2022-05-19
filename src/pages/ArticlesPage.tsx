@@ -5,7 +5,6 @@ import { addDoc, collection, getDocs } from "firebase/firestore";
 import styled from "styled-components";
 import ArticleLink from "components/atoms/ArticleLink/ArticleLink";
 import { MAIN_COLOR } from "components/valiables/Color";
-import dayjs from "dayjs";
 
 type Articles = {
   id: string;

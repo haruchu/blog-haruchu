@@ -16,7 +16,7 @@ const AdminArticleLink: React.FC<ArticleLinkProps> = ({
   date,
 }) => {
   return (
-    <StyledLink href={"admin/articles/" + id}>
+    <StyledLink href={process.env.REACT_APP_ADMIN_PATH + "/articles/" + id}>
       <StyledLinkTitle>{title}</StyledLinkTitle>
       <StyledTagsWrapper>
         {tags.map((tag, index) => (

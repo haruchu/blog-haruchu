@@ -24,8 +24,10 @@ const CreateNewArticle = async () => {
     date: dayjs(today).locale("ja").format("YYYY/MM/DD(dd)"),
     content: "",
   });
-  window.location.href = "/admin/articles/" + docRef.id;
+  window.location.href = "/" + process.env.REACT_APP_ADMIN_PATH + "/articles/" + docRef.id;
 };
+
+console.log(process.env.REACT_APP_ADMIN_PATH);
 
 const AdminArticlesPage: React.FC = () => {
   const [articles, setArticles] = useState<Articles[]>([]);

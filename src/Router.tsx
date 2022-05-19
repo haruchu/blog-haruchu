@@ -28,9 +28,9 @@ export const Router: React.VFC = () => {
       <Routes>
         <Route index element={<HomePage />} />
         <Route path="articles" element={<ArticlesPage />} />
-        <Route path="admin/articles" element={<AdminArticlesPage />} />
+        <Route path={`${process.env.REACT_APP_ADMIN_PATH}/articles`} element={<AdminArticlesPage />} />
         <Route path="articles/:id" element={<ArticlePage />} />
-        <Route path="admin/articles/:id" element={<AdminArticlePage />} />
+        <Route path={`${process.env.REACT_APP_ADMIN_PATH}/articles/:id`} element={<AdminArticlePage />} />
         <Route path="product" element={<ProductPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
