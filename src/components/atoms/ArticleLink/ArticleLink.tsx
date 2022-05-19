@@ -13,13 +13,13 @@ const ArticleLink: React.FC<ArticleLinkProps> = ({ id, title, tags, date }) => {
   return (
     <StyledLink href={"articles/" + id}>
       <StyledLinkTitle>{title}</StyledLinkTitle>
-      <StyledTags>
+      <StyledTagsWrapper>
         {tags.map((tag, index) => (
           <StyledTag key={index} index={index}>
             {tag}
           </StyledTag>
         ))}
-      </StyledTags>
+      </StyledTagsWrapper>
       <StyledDate>{date}</StyledDate>
     </StyledLink>
   );
@@ -50,38 +50,42 @@ const StyledLinkTitle = styled.h4`
   font-size: 30px;
 `;
 
-const StyledTags = styled.div`
+const StyledTagsWrapper = styled.div`
+  width: 80vw;
+  height: 20px;
   display: flex;
-  margin: 8px;
+  overflow-x: scroll;
+  white-space: nowrap;
+  &::-webkit-scrollbar{
+    display: none;
+  }
 `;
 
 const StyledTag = styled.span<{ index: number }>`
-  display: block;
-  width: auto;
-  padding: 2px 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 4px;
   margin: 0 4px;
   font-weight: 600;
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  text-decoration: none;
+  font-size: 8px;
   border-radius: 20px;
   transition: 0.5s;
+  position: relative;
   ${(props) => `
     background-color: ${COLOR[props.index % 7]};
-    color: ${COLOR[(props.index % 7) + 3]};
+    color: ${COLOR[(props.index + 3) % 7]};
   `}
   &:hover {
     ${(props) => `
       color: ${COLOR[props.index % 7]};
-      background-color: ${COLOR[(props.index % 7) + 3]};
+      background-color: ${COLOR[(props.index + 3) % 7]};
   `}
   }
 `;
 
 const StyledDate = styled.span`
-  position: absolute;
-  right: 12px;
-  bottom: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 `;

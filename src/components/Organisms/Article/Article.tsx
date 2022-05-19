@@ -71,8 +71,7 @@ const Article: React.FC<ArticleProps> = ({
         <StyledDateWrapper>
           <StyledDate>更新日: {date}</StyledDate>
         </StyledDateWrapper>
-      </StyledArticleHeader>
-      <StyledTagsWrapper>
+        <StyledTagsWrapper>
         {tags.map((tag, index) => (
           <StyledTag key={index} index={index}>
             {tag}
@@ -83,6 +82,7 @@ const Article: React.FC<ArticleProps> = ({
         ))}
         <AddTagInput onEditComplete={(value) => onAddTag(value)} />
       </StyledTagsWrapper>
+      </StyledArticleHeader>
       <StyledArticleContent>
         {isEditingArticle ? (
           <Textarea
@@ -114,6 +114,9 @@ const StyledWrapper = styled.div`
 
 const StyledArticleHeader = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const StyledTitle = styled.div`
@@ -145,26 +148,39 @@ const StyledTitleEditButtonWrapper = styled.div`
   -webkit-transform: translateY(-50%);
 `;
 
-const StyledTagsWrapper = styled.div`
-  width: 90%;
+const StyledDateWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  margin: 20px;
+  width: 100%;
+`;
+
+const StyledDate = styled.span`
+  margin-right: 20px;
+  ${phone`
+    font-size: 12px;
+  `}
+`;
+
+const StyledTagsWrapper = styled.div`
+  width: 80vw;
+  height: 20px;
+  display: flex;
+  overflow-x: scroll;
+  white-space: nowrap;
+  &::-webkit-scrollbar{
+    display: none;
+  }
 `;
 
 const StyledTag = styled.span<{ index: number }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: auto;
-  padding: 2px 36px 2px 10px;
+  padding: 2px 30px 2px 4px;
   margin: 0 4px;
   font-weight: 600;
-  font-size: 16px;
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  text-decoration: none;
+  font-size: 8px;
   border-radius: 20px;
   transition: 0.5s;
   position: relative;
@@ -183,7 +199,7 @@ const StyledTag = styled.span<{ index: number }>`
 const StyledDeleteTagButton = styled.button`
   background-color: transparent;
   display: flex;
-  padding: 8px;
+  padding: 4px;
   border-radius: 50%;
   align-items: center;
   justify-content: center;
@@ -199,19 +215,6 @@ const StyledDeleteTagButton = styled.button`
   &:hover {
     background-color: ${MAIN_COLOR.LIGHT_BLUE};
   }
-`;
-
-const StyledDateWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin: 20px;
-`;
-
-const StyledDate = styled.span`
-  margin-right: 20px;
-  ${phone`
-    font-size: 12px;
-  `}
 `;
 
 const StyledArticleContent = styled.div`

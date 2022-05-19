@@ -31,7 +31,7 @@ const StyledInput = styled.input`
   outline: none;
   border: none;
   color: #000;
-  font-size: 16px;
+  font-size: 8px;
   line-height: 35px;
   width: 40px;
   border-radius: 20px;
@@ -48,6 +48,6 @@ const StyledInput = styled.input`
     background-color: ${MAIN_COLOR.LIGHT_BLUE};
   }
   ${phone`
-    font-size: 20px;
+    font-size: 8px;
   `}
 `;
