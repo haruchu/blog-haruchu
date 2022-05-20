@@ -5,7 +5,6 @@ import { db } from "../firebase";
 import styled from "styled-components";
 import Article from "../components/Organisms/Article/Article";
 import ReactDOM from "react-dom";
-import dayjs from "dayjs";
 
 const ArticlePage: React.FC = () => {
   const { id } = useParams<string>();

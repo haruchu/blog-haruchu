@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { db } from "../firebase";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import styled from "styled-components";
 import ArticleLink from "components/atoms/ArticleLink/ArticleLink";
 import { MAIN_COLOR } from "components/valiables/Color";
@@ -43,6 +43,7 @@ const ArticlesPage: React.FC = () => {
           />
         ))}
       </StyledArticleWrapper>
+      <StyledHiddenLink href={"/" + process.env.REACT_APP_ADMIN_PATH + "/articles/"}/>
     </StyledWrapper>
   );
 };
@@ -59,3 +60,12 @@ const StyledArticleWrapper = styled.div`
   flex-wrap: wrap;
   margin: 0 auto;
 `;
+
+const StyledHiddenLink = styled.a`
+  width: 8px;
+  height: 8px;
+  background-color: ${MAIN_COLOR.WHITE_BLUE};
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+`

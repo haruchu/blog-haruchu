@@ -11,7 +11,7 @@ export interface ArticleLinkProps {
 
 const ArticleLink: React.FC<ArticleLinkProps> = ({ id, title, tags, date }) => {
   return (
-    <StyledLink href={"articles/" + id}>
+    <StyledLink href={"/articles/" + id}>
       <StyledLinkTitle>{title}</StyledLinkTitle>
       <StyledTagsWrapper>
         {tags.map((tag, index) => (

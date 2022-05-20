@@ -3,11 +3,11 @@ import { useEffect } from "react";
 import { db } from "../../firebase";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import styled from "styled-components";
-import ArticleLink from "components/atoms/ArticleLink/ArticleLink";
 import { MAIN_COLOR } from "components/valiables/Color";
 import { GrAdd } from "react-icons/gr";
 import dayjs from "dayjs";
 import { phone, tablet } from "components/valiables/BreakPoint";
+import AdminArticleLink from "components/atoms/ArticleLink/AdminArticleLink";
 
 type Articles = {
   id: string;
@@ -50,7 +50,7 @@ const AdminArticlesPage: React.FC = () => {
     <StyledWrapper>
       <StyledArticleWrapper>
         {articles.map((article) => (
-          <ArticleLink
+          <AdminArticleLink
             key={article.id}
             id={article.id}
             title={article.title}
