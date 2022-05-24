@@ -4,8 +4,8 @@ import Textarea, { onEditCompleteType } from "../../atoms/Textarea/Textarea";
 import Input from "../../atoms/Input/Input";
 import EditButton from "../../atoms/EditButton/EditButton";
 import { phone } from "../../valiables/BreakPoint";
-import AddTagInput from "components/atoms/AddTagInput/AddTagInput";
-import { COLOR, MAIN_COLOR } from "components/valiables/Color";
+import AddTagInput from "../../atoms/AddTagInput/AddTagInput";
+import { COLOR, MAIN_COLOR } from "../../valiables/Color";
 import { RiDeleteBack2Fill } from "react-icons/ri";
 
 interface ArticleProps {
