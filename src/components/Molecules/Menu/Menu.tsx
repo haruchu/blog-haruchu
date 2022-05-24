@@ -1,7 +1,7 @@
 import React from "react";
 import { AiOutlineHome } from "react-icons/ai";
 import { MdOutlineArticle } from "react-icons/md";
-import { BsBox, BsCalendarWeek } from "react-icons/bs";
+import { BsBox } from "react-icons/bs";
 
 export const Menu = [
   {
