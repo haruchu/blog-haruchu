@@ -176,6 +176,7 @@ const StyledTagsWrapper = styled.div`
   width: 80vw;
   height: 20px;
   display: flex;
+  justify-content: center;
   overflow-x: scroll;
   white-space: nowrap;
   &::-webkit-scrollbar {

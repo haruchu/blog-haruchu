@@ -39,7 +39,7 @@ const ArticlePage: React.FC = () => {
   }, [article]);
 
   return (
-    <StyledWrapper id="article">
+    <StyledWrapper>
       <StyledArticle id="article"></StyledArticle>
     </StyledWrapper>
   );

@@ -43,7 +43,9 @@ const ArticlesPage: React.FC = () => {
           />
         ))}
       </StyledArticleWrapper>
-      <StyledHiddenLink href={"/" + process.env.REACT_APP_ADMIN_PATH + "/articles/"}/>
+      <StyledHiddenLink
+        href={"/" + process.env.REACT_APP_ADMIN_PATH + "/articles/"}
+      />
     </StyledWrapper>
   );
 };
@@ -68,4 +70,4 @@ const StyledHiddenLink = styled.a`
   position: absolute;
   bottom: 10%;
   right: 5%;
-`
+`;
