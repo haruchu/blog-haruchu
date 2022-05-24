@@ -8,14 +8,27 @@ const ProductPage: React.FC = () => {
     <StyledWrapper>
       <h2>Product</h2>
       <StyledProductArticle>
-        <StyledGithubLink href="https://github.com/haruchu/final-assignment">
-          <img src="https://gh-card.dev/repos/haruchu/final-assignment.svg" />
+        <StyledGithubLink href="https://github.com/haruchu/blog-haruchu">
+          <img src="https://gh-card.dev/repos/haruchu/blog-haruchu.png"/>
         </StyledGithubLink>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-          veritatis dolorum dolores amet! Perferendis, dolorem. Voluptatem quis
-          veniam dolore possimus eos non. Sed amet accusantium quas. Aut quasi
-          eius qui.
+          このブログのリポジトリ
+        </p>
+      </StyledProductArticle>
+      <StyledProductArticle>
+        <StyledGithubLink href="https://github.com/haruchu/sns-app">
+          <img src="https://gh-card.dev/repos/haruchu/sns-app.svg"/>
+        </StyledGithubLink>
+        <p>
+          Djangoを用いてSNSを作ってみた
+        </p>
+      </StyledProductArticle>
+      <StyledProductArticle>
+        <StyledGithubLink href="https://github.com/haruchu/sns-app">
+          <img src="https://gh-card.dev/repos/haruchu/diary.svg"/>
+        </StyledGithubLink>
+        <p>
+          Djangoを用いて日記アプリを作ってみた
         </p>
       </StyledProductArticle>
     </StyledWrapper>
@@ -59,4 +72,5 @@ const StyledProductArticle = styled.div`
 
 const StyledGithubLink = styled.a`
   overflow: scroll;
+  width: fit-content;
 `;
