@@ -3,26 +3,22 @@ import styled from "styled-components";
 
 export interface MenuListProps {
   listName: string;
+  path: string;
   children: ReactNode;
   index: number;
   openIndex: number;
-  onActive: React.MouseEventHandler<HTMLLIElement>;
 }
 
 const BottomMenuList: React.FC<MenuListProps> = ({
   listName,
+  path,
   children,
   index,
   openIndex,
-  onActive,
 }) => {
   return (
-    <StyledList
-      index={index}
-      isOpen={index == openIndex ? true : false}
-      onClick={onActive}
-    >
-      <StyledLink href="#">
+    <StyledList index={index} isOpen={index == openIndex ? true : false}>
+      <StyledLink href={path}>
         <StyledIcon className="icon">{children}</StyledIcon>
         <StyledText className="text">{listName}</StyledText>
       </StyledLink>

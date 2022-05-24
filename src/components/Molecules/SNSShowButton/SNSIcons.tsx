@@ -32,7 +32,7 @@ const StyledTwitterIcon = styled.a`
 `;
 
 export const TwitterIcon: React.FC = () => (
-  <StyledTwitterIcon>
+  <StyledTwitterIcon href="https://twitter.com/nhp_haru">
     <AiOutlineTwitter />
   </StyledTwitterIcon>
 );
@@ -68,7 +68,7 @@ const StyledInstaIcon = styled.a`
 `;
 
 export const InstaIcon: React.FC = () => (
-  <StyledInstaIcon href="https://www.instagram.com/haru.playground/">
+  <StyledInstaIcon href="https://www.instagram.com/nhp_haru/">
     <AiOutlineInstagram className="icon" />
   </StyledInstaIcon>
 );

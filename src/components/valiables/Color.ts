@@ -5,7 +5,7 @@ export const COLOR = [
   "#F6FFA4",
   "#CE49BF",
   "#65C18C",
-  "#FFF8F3",
+  "#52C2FF",
 ];
 
 export const MAIN_COLOR = {

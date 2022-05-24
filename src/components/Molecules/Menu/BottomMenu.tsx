@@ -3,47 +3,44 @@ import { Menu } from "./Menu";
 import styled from "styled-components";
 import BottomMenuList from "../../atoms/MenuList/BottomMenuList";
 import { MAIN_COLOR } from "../../valiables/Color";
+import { useLocation } from "react-router-dom";
 
 const BottomMenu: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState(0);
-
-  const onActive = (index: number) => {
-    setOpenIndex(index);
-  };
+  let openIndex = 0;
+  const location = useLocation();
+  const pathname = location.pathname.split("/")[1];
+  if (pathname == "") {
+    openIndex = 0;
+  } else if (pathname == "articles" || location.pathname.split("/")[2] == "articles") {
+    openIndex = 1;
+  } else if (pathname == "product") {
+    openIndex = 2;
+  } else {
+    openIndex = 2;
+  }
 
   return (
-    <StyledWrapper>
-      <StyledMenu>
-        <StyledLists>
-          {Menu.map(({ name, icon }, index) => {
-            return (
-              <BottomMenuList
-                key={index}
-                listName={name}
-                index={index}
-                openIndex={openIndex}
-                onActive={() => onActive(index)}
-              >
-                {icon}
-              </BottomMenuList>
-            );
-          })}
-          <StyledIndicator className="indicator" />
-        </StyledLists>
-      </StyledMenu>
-    </StyledWrapper>
+    <StyledMenu>
+      <StyledLists>
+        {Menu.map(({ name, icon, path }, index) => {
+          return (
+            <BottomMenuList
+              key={index}
+              listName={name}
+              path={path}
+              index={index}
+              openIndex={openIndex}
+            >
+              {icon}
+            </BottomMenuList>
+          );
+        })}
+        <StyledIndicator className="indicator" />
+      </StyledLists>
+    </StyledMenu>
   );
 };
 export default BottomMenu;
-
-// 仮のWrapper 後ではずす
-const StyledWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: ${MAIN_COLOR.WHITE_BLUE};
-`;
 
 const StyledMenu = styled.div`
   width: 100%;
@@ -53,6 +50,11 @@ const StyledMenu = styled.div`
   align-content: center;
   justify-content: center;
   border-radius: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+  border-top: 10px solid ${MAIN_COLOR.WHITE_BLUE};
 `;
 
 const StyledLists = styled.ul`

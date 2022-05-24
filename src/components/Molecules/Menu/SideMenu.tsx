@@ -1,5 +1,5 @@
 import SideMenuList from "../../atoms/MenuList/SideMenuList";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Menu } from "./Menu";
 import styled, { css } from "styled-components";
 import ProfileIcon from "../../assets/profile.jpg";
@@ -35,9 +35,9 @@ const SideMenu: React.FC = () => {
         </StyledSNSIcons>
       </StyledInfo>
       <StyledMenuLists>
-        {Menu.map((item, index) => (
-          <SideMenuList listName={item.name} key={index} isOpen={isOpen}>
-            {item.icon}
+        {Menu.map(({ name, path, icon }, index) => (
+          <SideMenuList listName={name} path={path} key={index} isOpen={isOpen}>
+            {icon}
           </SideMenuList>
         ))}
       </StyledMenuLists>
@@ -53,7 +53,11 @@ const StyledSideMenu = styled.div<{ isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: ${MAIN_COLOR.LIGHT_BLUE};
+  background-color: ${MAIN_COLOR.NOMAL_BLUE};
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
   ${(props) =>
     props.isOpen &&
     css`
@@ -88,7 +92,7 @@ const StyledProfileIcon = styled.div`
 
 const StyledImg = styled.img`
   border-radius: 50%;
-  border: 4px solid ${MAIN_COLOR.NOMAL_BLUE};
+  border: 4px solid ${MAIN_COLOR.LIGHT_BLUE};
   width: 100%;
 `;
 
