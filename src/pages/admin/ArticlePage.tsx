@@ -6,7 +6,7 @@ import styled from "styled-components";
 import Article from "../../components/Organisms/Article/Article";
 import ReactDOM from "react-dom";
 import dayjs from "dayjs";
-import { tablet } from "components/valiables/BreakPoint";
+import { tablet } from "../../components/valiables/BreakPoint";
 import { BsFillTrashFill } from "react-icons/bs";
 
 const AdminArticlePage: React.FC = () => {

@@ -1,5 +1,5 @@
-import { tablet } from "components/valiables/BreakPoint";
-import { MAIN_COLOR } from "components/valiables/Color";
+import { tablet } from "../components/valiables/BreakPoint";
+import { MAIN_COLOR } from "../components/valiables/Color";
 import React from "react";
 import styled from "styled-components";
 

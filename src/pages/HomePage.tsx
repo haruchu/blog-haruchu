@@ -1,9 +1,9 @@
-import Skills from "components/Molecules/Skills/Skills";
+import Skills from "../components/Molecules/Skills/Skills";
 import ProfileIcon from "../components/assets/profile.jpg";
 import React from "react";
 import styled from "styled-components";
-import { phone } from "components/valiables/BreakPoint";
-import { MAIN_COLOR } from "components/valiables/Color";
+import { phone } from "../components/valiables/BreakPoint";
+import { MAIN_COLOR } from "../components/valiables/Color";
 
 const HomePage: React.FC = () => {
   return (

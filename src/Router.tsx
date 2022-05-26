@@ -1,18 +1,18 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import ArticlesPage from "pages/ArticlesPage";
-import HomePage from "pages/HomePage";
+import ArticlesPage from "./pages/ArticlesPage";
+import HomePage from "./pages/HomePage";
 import useMedia from "use-media";
-import SideMenu from "components/Molecules/Menu/SideMenu";
-import BottomMenu from "components/Molecules/Menu/BottomMenu";
-import NotFoundPage from "pages/NotFoundPage";
-import SNSShowButton from "components/Molecules/SNSShowButton/SNSShowButton";
-import ArticlePage from "pages/ArticlePage";
-import ProductPage from "pages/ProductPage";
-import AdminArticlesPage from "pages/admin/ArticlesPage";
-import AdminArticlePage from "pages/admin/ArticlePage";
+import SideMenu from "./components/Molecules/Menu/SideMenu";
+import BottomMenu from "./components/Molecules/Menu/BottomMenu";
+import NotFoundPage from "./pages/NotFoundPage";
+import SNSShowButton from "./components/Molecules/SNSShowButton/SNSShowButton";
+import ArticlePage from "./pages/ArticlePage";
+import ProductPage from "./pages/ProductPage";
+import AdminArticlesPage from "./pages/admin/ArticlesPage";
+import AdminArticlePage from "./pages/admin/ArticlePage";
 
-export const Router: React.VFC = () => {
+export const Router: React.FC = () => {
   const isWide = useMedia({ minWidth: "1025px" });
 
   return (
