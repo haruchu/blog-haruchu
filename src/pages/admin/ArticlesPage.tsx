@@ -36,6 +36,7 @@ const AdminArticlesPage: React.FC = () => {
   useEffect(() => {
     const usersCollectionRef = collection(db, "articles");
     getDocs(usersCollectionRef).then((querySnapshot) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const newArticles: any[] = [];
       querySnapshot.forEach((doc) => {
         newArticles.push({
