@@ -19,6 +19,7 @@ module.exports = {
   }],
   },
   resolve: {
-    extensions: ['.tsx', '.ts']
+    extensions: [".js",'.tsx', '.ts'],
+    modules: ["node_modules",path.resolve(__dirname, "app")],
   },
 };

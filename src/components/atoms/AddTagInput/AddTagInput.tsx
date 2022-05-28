@@ -2,7 +2,6 @@ import { MAIN_COLOR } from "../../valiables/Color";
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { phone } from "../../valiables/BreakPoint";
-import { AiOutlinePlus } from "react-icons/ai";
 
 type onEditCompleteType = (something: string) => void;
 
