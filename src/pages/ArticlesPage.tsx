@@ -65,8 +65,8 @@ const StyledArticleWrapper = styled.div`
 `;
 
 const StyledHiddenLink = styled.a`
-  width: 8px;
-  height: 8px;
+  width: 16px;
+  height: 16px;
   background-color: ${MAIN_COLOR.WHITE_BLUE};
   position: absolute;
   bottom: 10%;
