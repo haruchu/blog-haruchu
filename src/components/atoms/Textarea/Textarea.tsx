@@ -24,11 +24,6 @@ const Textarea: React.FC<TextareaProps> = ({
     const onFocusOut = () => onEditComplete(TextareaRef.current.value);
 
     TextareaRef.current.addEventListener("focusout", onFocusOut);
-    TextareaRef.current.addEventListener("keypress", (event) => {
-      if (event.key !== "Enter") return;
-      TextareaRef.current.removeEventListener("focusout", onFocusOut);
-      onEditComplete(TextareaRef.current.value);
-    });
   }, []);
 
   return (
