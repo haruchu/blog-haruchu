@@ -3,11 +3,11 @@ import { useEffect } from "react";
 import { db } from "../../firebase";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import styled from "styled-components";
-import { MAIN_COLOR } from "components/valiables/Color";
+import { MAIN_COLOR } from "../../components/valiables/Color";
 import { GrAdd } from "react-icons/gr";
 import dayjs from "dayjs";
-import { phone, tablet } from "components/valiables/BreakPoint";
-import AdminArticleLink from "components/atoms/ArticleLink/AdminArticleLink";
+import { phone, tablet } from "../../components/valiables/BreakPoint";
+import AdminArticleLink from "../../components/atoms/ArticleLink/AdminArticleLink";
 
 type Articles = {
   id: string;

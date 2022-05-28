@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 import styled from "styled-components";
-import ArticleLink from "components/atoms/ArticleLink/ArticleLink";
-import { MAIN_COLOR } from "components/valiables/Color";
+import ArticleLink from "../components/atoms/ArticleLink/ArticleLink";
+import { MAIN_COLOR } from "../components/valiables/Color";
 
 type Articles = {
   id: string;
