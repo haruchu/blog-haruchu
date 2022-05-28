@@ -33,6 +33,7 @@ const ArticlesPage: React.FC = () => {
 
   return (
     <StyledWrapper>
+      <h2>Articles</h2>
       <StyledArticleWrapper>
         {articles.map((article) => (
           <ArticleLink
@@ -55,6 +56,9 @@ export default ArticlesPage;
 const StyledWrapper = styled.div`
   background-color: ${MAIN_COLOR.WHITE_BLUE};
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const StyledArticleWrapper = styled.div`
