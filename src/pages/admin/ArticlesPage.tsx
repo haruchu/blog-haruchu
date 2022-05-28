@@ -28,8 +28,6 @@ const CreateNewArticle = async () => {
     "/" + process.env.REACT_APP_ADMIN_PATH + "/articles/" + docRef.id;
 };
 
-console.log(process.env.REACT_APP_ADMIN_PATH);
-
 const AdminArticlesPage: React.FC = () => {
   const [articles, setArticles] = useState<Articles[]>([]);
 
