@@ -54,6 +54,7 @@ const StyledProductArticle = styled.div`
   border: 6px solid ${MAIN_COLOR.LIGHT_BLUE};
   border-radius: 20px;
   transition: 0.5s;
+  overflow: scroll;
   &:hover {
     border: 6px solid ${MAIN_COLOR.DARK_BLUE};
   }
@@ -71,6 +72,5 @@ const StyledProductArticle = styled.div`
 `;
 
 const StyledGithubLink = styled.a`
-  overflow: scroll;
   width: fit-content;
 `;
