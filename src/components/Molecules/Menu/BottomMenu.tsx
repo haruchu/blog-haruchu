@@ -11,7 +11,10 @@ const BottomMenu: React.FC = () => {
   const pathname = location.pathname.split("/")[1];
   if (pathname == "") {
     openIndex = 0;
-  } else if (pathname == "articles" || location.pathname.split("/")[2] == "articles") {
+  } else if (
+    pathname == "articles" ||
+    location.pathname.split("/")[2] == "articles"
+  ) {
     openIndex = 1;
   } else if (pathname == "product") {
     openIndex = 2;
