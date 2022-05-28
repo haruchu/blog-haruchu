@@ -3,9 +3,12 @@ const path = require("path");
 
 module.exports = {
   mode: "development",
-  entry: "./src/index.tsx",
+  entry: {
+    index: path.join(__dirname, 'src', 'index.tsx')
+  },
   output: {
     path: path.resolve(__dirname, "build"),
+    filename: 'main.ts'
   },
   module: {
     rules: [{ test: /\.ts|tsx$/, use: "ts-loader" },

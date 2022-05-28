@@ -12,7 +12,7 @@ import ProductPage from "./pages/ProductPage";
 import AdminArticlesPage from "./pages/admin/ArticlesPage";
 import AdminArticlePage from "./pages/admin/ArticlePage";
 
-export const Router: React.VFC = () => {
+export const Router: React.FC = () => {
   const isWide = useMedia({ minWidth: "1025px" });
 
   return (
