@@ -12,8 +12,10 @@ import { BsFillTrashFill } from "react-icons/bs";
 const AdminArticlePage: React.FC = () => {
   const { id } = useParams<string>();
   const usersCollectionRef = id && doc(db, "articles", id);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let article: any;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const TitleChange = async (id: string, title: string, article: any) => {
     const today = new Date();
     await setDoc(
@@ -29,6 +31,7 @@ const AdminArticlePage: React.FC = () => {
     window.location.reload();
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const ContentChange = async (id: string, content: string, article: any) => {
     const today = new Date();
     await setDoc(
@@ -44,6 +47,7 @@ const AdminArticlePage: React.FC = () => {
     window.location.reload();
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const updateTags = async (id: string, tags: string[], article: any) => {
     await setDoc(
       doc(db, "articles", id),

@@ -9,6 +9,7 @@ import ReactDOM from "react-dom";
 const ArticlePage: React.FC = () => {
   const { id } = useParams<string>();
   const usersCollectionRef = id && doc(db, "articles", id);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let article: any;
 
   useEffect(() => {

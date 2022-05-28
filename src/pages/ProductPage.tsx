@@ -9,27 +9,21 @@ const ProductPage: React.FC = () => {
       <h2>Product</h2>
       <StyledProductArticle>
         <StyledGithubLink href="https://github.com/haruchu/blog-haruchu">
-          <img src="https://gh-card.dev/repos/haruchu/blog-haruchu.png"/>
+          <img src="https://gh-card.dev/repos/haruchu/blog-haruchu.png" />
         </StyledGithubLink>
-        <p>
-          このブログのリポジトリ
-        </p>
+        <p>このブログのリポジトリ</p>
       </StyledProductArticle>
       <StyledProductArticle>
         <StyledGithubLink href="https://github.com/haruchu/sns-app">
-          <img src="https://gh-card.dev/repos/haruchu/sns-app.svg"/>
+          <img src="https://gh-card.dev/repos/haruchu/sns-app.svg" />
         </StyledGithubLink>
-        <p>
-          Djangoを用いてSNSを作ってみた
-        </p>
+        <p>Djangoを用いてSNSを作ってみた</p>
       </StyledProductArticle>
       <StyledProductArticle>
         <StyledGithubLink href="https://github.com/haruchu/sns-app">
-          <img src="https://gh-card.dev/repos/haruchu/diary.svg"/>
+          <img src="https://gh-card.dev/repos/haruchu/diary.svg" />
         </StyledGithubLink>
-        <p>
-          Djangoを用いて日記アプリを作ってみた
-        </p>
+        <p>Djangoを用いて日記アプリを作ってみた</p>
       </StyledProductArticle>
     </StyledWrapper>
   );
