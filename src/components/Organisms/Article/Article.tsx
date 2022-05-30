@@ -246,6 +246,7 @@ const StyledArticleText = styled.div`
   padding: 40px;
   font-size: 16px;
   box-sizing: border-box;
+  white-space: pre-wrap;
   ${phone`
     font-size: 12px;
   `}
