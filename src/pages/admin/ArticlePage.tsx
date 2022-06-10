@@ -17,12 +17,17 @@ const AdminArticlePage: React.FC = () => {
 
   const FormatContentWithLink = (content: string) => {
     const regexp_url = /((h?)(ttps?:\/\/[a-zA-Z0-9.\-_@:/~?%&;=+#',()*!]+))/g;
-    const regexp_makeLink = function(all: string, url: string, h: string, href:string) {
-        return '<a href="h' + href + '">' + url + '</a>';
-    }
+    const regexp_makeLink = function (
+      all: string,
+      url: string,
+      h: string,
+      href: string
+    ) {
+      return '<a href="h' + href + '">' + url + "</a>";
+    };
     const textWithLink = content.replace(regexp_url, regexp_makeLink);
-    document.getElementById('article-content').innerHTML = textWithLink
-  }
+    document.getElementById("article-content").innerHTML = textWithLink;
+  };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const TitleChange = async (id: string, title: string, article: any) => {

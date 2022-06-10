@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Textarea, { onEditCompleteType } from "../../atoms/Textarea/Textarea";
 import Input from "../../atoms/Input/Input";
@@ -99,7 +99,9 @@ const Article: React.FC<ArticleProps> = ({
           />
         ) : (
           <>
-            <StyledArticleText id="article-content">{article}</StyledArticleText>
+            <StyledArticleText id="article-content">
+              {article}
+            </StyledArticleText>
             {isAdmin ? (
               <StyledContentEditButtonWrapper>
                 <EditButton
