@@ -48,6 +48,7 @@ const AdminArticlesPage: React.FC = () => {
 
   return (
     <StyledWrapper>
+      <h2>Articles</h2>
       <StyledArticleWrapper>
         {articles.map((article) => (
           <AdminArticleLink

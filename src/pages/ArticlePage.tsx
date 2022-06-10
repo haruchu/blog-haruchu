@@ -15,7 +15,6 @@ const ArticlePage: React.FC = () => {
   useEffect(() => {
     if (
       typeof id !== "undefined" &&
-      usersCollectionRef !== "" &&
       typeof usersCollectionRef !== "undefined"
     ) {
       getDoc(usersCollectionRef).then((documentSnapshot) => {
