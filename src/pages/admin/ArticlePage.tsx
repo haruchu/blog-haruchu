@@ -15,20 +15,6 @@ const AdminArticlePage: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let article: any;
 
-  const FormatContentWithLink = (content: string) => {
-    const regexp_url = /((h?)(ttps?:\/\/[a-zA-Z0-9.\-_@:/~?%&;=+#',()*!]+))/g;
-    const regexp_makeLink = function (
-      all: string,
-      url: string,
-      h: string,
-      href: string
-    ) {
-      return '<a href="h' + href + '">' + url + "</a>";
-    };
-    const textWithLink = content.replace(regexp_url, regexp_makeLink);
-    document.getElementById("article-content").innerHTML = textWithLink;
-  };
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const TitleChange = async (id: string, title: string, article: any) => {
     const today = new Date();
@@ -52,7 +38,7 @@ const AdminArticlePage: React.FC = () => {
       doc(db, "articles", id),
       {
         title: article.title,
-        content: FormatContentWithLink(content),
+        content: content,
         date: dayjs(today).locale("ja").format("YYYY/MM/DD(dd)"),
         tags: article.tags,
       },
@@ -67,7 +53,7 @@ const AdminArticlePage: React.FC = () => {
       doc(db, "articles", id),
       {
         title: article.title,
-        content: FormatContentWithLink(article.content),
+        content: article.content,
         date: article.date,
         tags: tags,
       },
@@ -89,7 +75,6 @@ const AdminArticlePage: React.FC = () => {
     ) {
       getDoc(usersCollectionRef).then((documentSnapshot) => {
         article = documentSnapshot.data();
-        console.log(article);
         const articleDOM = (
           <Article
             title={article.title}
