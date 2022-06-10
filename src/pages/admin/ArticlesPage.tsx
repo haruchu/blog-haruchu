@@ -71,6 +71,9 @@ export default AdminArticlesPage;
 const StyledWrapper = styled.div`
   background-color: ${MAIN_COLOR.WHITE_BLUE};
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const StyledArticleWrapper = styled.div`
