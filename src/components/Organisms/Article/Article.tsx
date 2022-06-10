@@ -99,7 +99,9 @@ const Article: React.FC<ArticleProps> = ({
           />
         ) : (
           <>
-            <StyledArticleText>{article}</StyledArticleText>
+            <StyledArticleText id="article-content">
+              {article}
+            </StyledArticleText>
             {isAdmin ? (
               <StyledContentEditButtonWrapper>
                 <EditButton

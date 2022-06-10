@@ -6,6 +6,7 @@
     "outDir": "./build",
     "moduleResolution": "Node",
     "strict": true,
+    "strictNullChecks": false,
     "baseUrl": "./src",
     "paths": {
       "@/*": ["src/*"]
