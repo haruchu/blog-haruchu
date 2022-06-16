@@ -11,11 +11,11 @@ export interface ArticleLinkProps {
 
 const ArticleLink: React.FC<ArticleLinkProps> = ({ id, title, tags, date }) => {
   return (
-    <StyledLink href={"/articles/" + id}>
+    <StyledLink href={"/article/" + id}>
       <StyledLinkTitle>{title}</StyledLinkTitle>
       <StyledTagsWrapper>
         {tags.map((tag, index) => (
-          <StyledTag key={index} index={index}>
+          <StyledTag key={index} index={index} href={"/articles/" + tag}>
             {tag}
           </StyledTag>
         ))}
@@ -63,7 +63,7 @@ const StyledTagsWrapper = styled.div`
   }
 `;
 
-const StyledTag = styled.span<{ index: number }>`
+const StyledTag = styled.a<{ index: number }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,6 +74,7 @@ const StyledTag = styled.span<{ index: number }>`
   border-radius: 20px;
   transition: 0.5s;
   position: relative;
+  text-decoration: none;
   ${(props) => `
     background-color: ${COLOR[props.index % 7]};
     color: ${COLOR[(props.index + 3) % 7]};

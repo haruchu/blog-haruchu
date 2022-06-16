@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { db } from "../../firebase";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import styled from "styled-components";
+import ArticleLink from "../../components/atoms/ArticleLink/ArticleLink";
 import { MAIN_COLOR } from "../../components/valiables/Color";
-import { GrAdd } from "react-icons/gr";
-import dayjs from "dayjs";
-import { phone, tablet } from "../../components/valiables/BreakPoint";
-import AdminArticleLink from "../../components/atoms/ArticleLink/AdminArticleLink";
+import { useParams } from "react-router-dom";
 
 type Articles = {
   id: string;
@@ -16,23 +14,12 @@ type Articles = {
   date: string;
 };
 
-const CreateNewArticle = async () => {
-  const today = new Date();
-  const docRef = await addDoc(collection(db, "articles"), {
-    title: "",
-    tags: [],
-    date: dayjs(today).locale("ja").format("YYYY/MM/DD(dd)"),
-    content: "",
-  });
-  window.location.href =
-    "/" + process.env.REACT_APP_ADMIN_PATH + "/article/" + docRef.id;
-};
-
-const AdminArticlesPage: React.FC = () => {
+const AdminFileterdArticlesPage: React.FC = () => {
   const [articles, setArticles] = useState<Articles[]>([]);
+  const { tag } = useParams<string>();
 
   useEffect(() => {
-    const usersCollectionRef = collection(db, "articles");
+    const usersCollectionRef = query(collection(db, "articles"), where("tags", "array-contains", tag));
     getDocs(usersCollectionRef).then((querySnapshot) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const newArticles: any[] = [];
@@ -49,9 +36,10 @@ const AdminArticlesPage: React.FC = () => {
   return (
     <StyledWrapper>
       <h2>Articles</h2>
+      <h4>タグ：{ tag }</h4>
       <StyledArticleWrapper>
         {articles.map((article) => (
-          <AdminArticleLink
+          <ArticleLink
             key={article.id}
             id={article.id}
             title={article.title}
@@ -60,13 +48,13 @@ const AdminArticlesPage: React.FC = () => {
           />
         ))}
       </StyledArticleWrapper>
-      <NewArticleButton onClick={CreateNewArticle}>
-        <GrAdd />
-      </NewArticleButton>
+      <StyledHiddenLink
+        href={"/" + process.env.REACT_APP_ADMIN_PATH + "/articles/"}
+      />
     </StyledWrapper>
   );
 };
-export default AdminArticlesPage;
+export default AdminFileterdArticlesPage;
 
 const StyledWrapper = styled.div`
   background-color: ${MAIN_COLOR.WHITE_BLUE};
@@ -83,28 +71,11 @@ const StyledArticleWrapper = styled.div`
   margin: 0 auto;
 `;
 
-const NewArticleButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
-  position: fixed;
-  bottom: 6%;
-  right: 2%;
-  ${tablet`
-    bottom: 10%;
-  `}
-  ${phone`
-    bottom: 15%;
-  `}
-  background-color: ${MAIN_COLOR.LIGHT_BLUE};
-  border: 2px solid ${MAIN_COLOR.DARK_BLUE};
-  border-radius: 50%;
-  padding: 10px;
-  cursor: pointer;
-  transition: 0.5s;
-  &:hover {
-    background-color: ${MAIN_COLOR.DARK_BLUE};
-  }
+const StyledHiddenLink = styled.a`
+  width: 16px;
+  height: 16px;
+  background-color: ${MAIN_COLOR.WHITE_BLUE};
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
 `;
