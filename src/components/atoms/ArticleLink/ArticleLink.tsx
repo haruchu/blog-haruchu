@@ -1,6 +1,7 @@
-import { COLOR, MAIN_COLOR } from "../../valiables/Color";
+import { MAIN_COLOR } from "../../valiables/Color";
 import React from "react";
 import styled from "styled-components";
+import ArticleTag from "../ArticleTag/ArticleTag";
 
 export interface ArticleLinkProps {
   id: string;
@@ -11,13 +12,11 @@ export interface ArticleLinkProps {
 
 const ArticleLink: React.FC<ArticleLinkProps> = ({ id, title, tags, date }) => {
   return (
-    <StyledLink href={"/articles/" + id}>
+    <StyledLink href={"/article/" + id}>
       <StyledLinkTitle>{title}</StyledLinkTitle>
       <StyledTagsWrapper>
         {tags.map((tag, index) => (
-          <StyledTag key={index} index={index}>
-            {tag}
-          </StyledTag>
+          <ArticleTag key={index} index={index} tagName={tag} isAdmin={false} />
         ))}
       </StyledTagsWrapper>
       <StyledDate>{date}</StyledDate>
@@ -60,29 +59,6 @@ const StyledTagsWrapper = styled.div`
   white-space: nowrap;
   &::-webkit-scrollbar {
     display: none;
-  }
-`;
-
-const StyledTag = styled.span<{ index: number }>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2px 4px;
-  margin: 0 4px;
-  font-weight: 600;
-  font-size: 8px;
-  border-radius: 20px;
-  transition: 0.5s;
-  position: relative;
-  ${(props) => `
-    background-color: ${COLOR[props.index % 7]};
-    color: ${COLOR[(props.index + 3) % 7]};
-  `}
-  &:hover {
-    ${(props) => `
-      color: ${COLOR[props.index % 7]};
-      background-color: ${COLOR[(props.index + 3) % 7]};
-  `}
   }
 `;
 

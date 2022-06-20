@@ -12,8 +12,8 @@ const BottomMenu: React.FC = () => {
   if (pathname == "") {
     openIndex = 0;
   } else if (
-    pathname == "articles" ||
-    location.pathname.split("/")[2] == "articles"
+    pathname.includes("article") ||
+    location.pathname.split("/")[2].includes("article")
   ) {
     openIndex = 1;
   } else if (pathname == "product") {

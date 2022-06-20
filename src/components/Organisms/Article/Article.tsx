@@ -5,8 +5,7 @@ import Input from "../../atoms/Input/Input";
 import EditButton from "../../atoms/EditButton/EditButton";
 import { phone } from "../../valiables/BreakPoint";
 import AddTagInput from "../../atoms/AddTagInput/AddTagInput";
-import { COLOR, MAIN_COLOR } from "../../valiables/Color";
-import { RiDeleteBack2Fill } from "react-icons/ri";
+import ArticleTag from "../../atoms/ArticleTag/ArticleTag";
 
 interface ArticleProps {
   title: string;
@@ -77,14 +76,13 @@ const Article: React.FC<ArticleProps> = ({
         </StyledDateWrapper>
         <StyledTagsWrapper>
           {tags.map((tag, index) => (
-            <StyledTag key={index} index={index}>
-              {tag}
-              {isAdmin ? (
-                <StyledDeleteTagButton onClick={() => onDeleteTag(index)}>
-                  <RiDeleteBack2Fill />
-                </StyledDeleteTagButton>
-              ) : null}
-            </StyledTag>
+            <ArticleTag
+              key={index}
+              index={index}
+              tagName={tag}
+              isAdmin={isAdmin}
+              onDeleteTag={() => onDeleteTag(index)}
+            />
           ))}
           {isAdmin ? (
             <AddTagInput onEditComplete={(value) => onAddTag(value)} />
@@ -183,50 +181,6 @@ const StyledTagsWrapper = styled.div`
   white-space: nowrap;
   &::-webkit-scrollbar {
     display: none;
-  }
-`;
-
-const StyledTag = styled.span<{ index: number }>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2px 30px 2px 4px;
-  margin: 0 4px;
-  font-weight: 600;
-  font-size: 8px;
-  border-radius: 20px;
-  transition: 0.5s;
-  position: relative;
-  ${(props) => `
-    background-color: ${COLOR[props.index % 7]};
-    color: ${COLOR[(props.index + 3) % 7]};
-  `}
-  &:hover {
-    ${(props) => `
-      color: ${COLOR[props.index % 7]};
-      background-color: ${COLOR[(props.index + 3) % 7]};
-  `}
-  }
-`;
-
-const StyledDeleteTagButton = styled.button`
-  background-color: transparent;
-  display: flex;
-  padding: 4px;
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  transition: 0.5s;
-  background-color: ${MAIN_COLOR.DARK_BLUE};
-  &:hover {
-    background-color: ${MAIN_COLOR.LIGHT_BLUE};
   }
 `;
 

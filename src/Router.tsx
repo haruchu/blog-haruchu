@@ -28,13 +28,18 @@ export const Router: React.FC = () => {
       <Routes>
         <Route index element={<HomePage />} />
         <Route path="articles" element={<ArticlesPage />} />
+        <Route path="articles/:tag" element={<ArticlesPage />} />
         <Route
           path={`${process.env.REACT_APP_ADMIN_PATH}/articles`}
           element={<AdminArticlesPage />}
         />
-        <Route path="articles/:id" element={<ArticlePage />} />
         <Route
-          path={`${process.env.REACT_APP_ADMIN_PATH}/articles/:id`}
+          path={`${process.env.REACT_APP_ADMIN_PATH}/articles/:tag`}
+          element={<AdminArticlesPage />}
+        />
+        <Route path="article/:id" element={<ArticlePage />} />
+        <Route
+          path={`${process.env.REACT_APP_ADMIN_PATH}/article/:id`}
           element={<AdminArticlePage />}
         />
         <Route path="product" element={<ProductPage />} />
