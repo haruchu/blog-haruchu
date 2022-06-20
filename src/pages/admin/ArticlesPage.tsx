@@ -7,8 +7,8 @@ import { MAIN_COLOR } from "../../components/valiables/Color";
 import { GrAdd } from "react-icons/gr";
 import dayjs from "dayjs";
 import { phone, tablet } from "../../components/valiables/BreakPoint";
-import AdminArticleLink from "../../components/atoms/ArticleLink/AdminArticleLink";
 import { useParams } from "react-router-dom";
+import ArticleLink from "../../components/atoms/ArticleLink/ArticleLink";
 
 type Articles = {
   id: string;
@@ -59,12 +59,13 @@ const AdminArticlesPage: React.FC = () => {
       <h2>Articles</h2>
       <StyledArticleWrapper>
         {articles.map((article) => (
-          <AdminArticleLink
+          <ArticleLink
             key={article.id}
             id={article.id}
             title={article.title}
             tags={article.tags}
             date={article.date}
+            isAdmin={true}
           />
         ))}
       </StyledArticleWrapper>

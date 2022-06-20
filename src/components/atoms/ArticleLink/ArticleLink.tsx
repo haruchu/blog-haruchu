@@ -8,15 +8,33 @@ export interface ArticleLinkProps {
   title: string;
   tags: string[];
   date: string;
+  isAdmin: boolean;
 }
 
-const ArticleLink: React.FC<ArticleLinkProps> = ({ id, title, tags, date }) => {
+const ArticleLink: React.FC<ArticleLinkProps> = ({
+  id,
+  title,
+  tags,
+  date,
+  isAdmin,
+}) => {
   return (
-    <StyledLink href={"/article/" + id}>
+    <StyledLink
+      href={
+        (isAdmin ? "/" + process.env.REACT_APP_ADMIN_PATH : "") +
+        "/article/" +
+        id
+      }
+    >
       <StyledLinkTitle>{title}</StyledLinkTitle>
       <StyledTagsWrapper>
         {tags.map((tag, index) => (
-          <ArticleTag key={index} index={index} tagName={tag} isAdmin={false} />
+          <ArticleTag
+            key={index}
+            index={index}
+            tagName={tag}
+            isAdmin={isAdmin}
+          />
         ))}
       </StyledTagsWrapper>
       <StyledDate>{date}</StyledDate>

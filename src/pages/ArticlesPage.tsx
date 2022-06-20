@@ -50,6 +50,7 @@ const ArticlesPage: React.FC = () => {
             title={article.title}
             tags={article.tags}
             date={article.date}
+            isAdmin={false}
           />
         ))}
       </StyledArticleWrapper>
