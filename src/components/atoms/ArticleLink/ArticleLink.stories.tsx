@@ -11,7 +11,7 @@ export default {
   },
 };
 
-export const Basic = () => {
+export const AdminArticleLink = () => {
   const article = {
     title: "タイトル",
     tags: ["フロンドエンド", "バックエンド"],
@@ -23,6 +23,24 @@ export const Basic = () => {
       title={article.title}
       tags={article.tags}
       date={article.date}
+      isAdmin={true}
+    />
+  );
+};
+
+export const NotAdminArticleLink = () => {
+  const article = {
+    title: "タイトル",
+    tags: ["フロンドエンド", "バックエンド"],
+    date: "2022-04-26",
+  };
+  return (
+    <ArticleLink
+      id="1"
+      title={article.title}
+      tags={article.tags}
+      date={article.date}
+      isAdmin={false}
     />
   );
 };

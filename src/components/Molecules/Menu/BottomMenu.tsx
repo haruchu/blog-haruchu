@@ -9,15 +9,16 @@ const BottomMenu: React.FC = () => {
   let openIndex = 0;
   const location = useLocation();
   const pathname = location.pathname.split("/")[1];
+  console.log(pathname.indexOf("article"));
   if (pathname == "") {
     openIndex = 0;
   } else if (
     pathname == "articles" ||
-    location.pathname.split("/")[2] == "articles"
+    location.pathname.split("/")[2] == "articles" ||
+    pathname == "article" ||
+    location.pathname.split("/")[2] == "article"
   ) {
     openIndex = 1;
-  } else if (pathname == "product") {
-    openIndex = 2;
   } else {
     openIndex = 2;
   }
