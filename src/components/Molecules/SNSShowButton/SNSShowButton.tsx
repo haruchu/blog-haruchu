@@ -60,6 +60,7 @@ const StyledIcon = styled.span<{ index: number; isShow: boolean }>`
   right: 0;
   opacity: 0;
   transition: 0.5s;
+  z-index: 5;
   ${(props) =>
     props.isShow &&
     `
