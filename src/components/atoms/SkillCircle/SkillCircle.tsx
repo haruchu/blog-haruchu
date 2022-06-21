@@ -1,4 +1,3 @@
-import { phone } from "../../valiables/BreakPoint";
 import React from "react";
 import styled from "styled-components";
 
@@ -51,10 +50,7 @@ const CircleWrapper = styled.div<{ Comprehension: number }>`
   position: relative;
   width: 220px;
   height: 220px;
-  margin: 50px;
-  ${phone`
-    margin: 10px;
-  `}
+  margin: 30px;
   .shape,
   .mask,
   .fill {

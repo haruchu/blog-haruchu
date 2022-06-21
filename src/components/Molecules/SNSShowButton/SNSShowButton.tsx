@@ -55,7 +55,7 @@ const StyledImg = styled.img`
 `;
 
 const StyledIcon = styled.span<{ index: number; isShow: boolean }>`
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   opacity: 0;
