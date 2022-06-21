@@ -1,16 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { SkillLists } from "./SkillLists";
-import Skill from "../../atoms/Skill/Skill";
+import SkillCircle from "../../atoms/SkillCircle/SkillCircle";
 
 const Skills: React.FC = () => {
   return (
     <StyledSkills>
       {SkillLists.map((skill, index) => (
-        <Skill
+        <SkillCircle
           key={index}
           StudyImg={skill.StudyImg}
-          StudyName={skill.StudyName}
           Comprehension={skill.Comprehension}
         />
       ))}
