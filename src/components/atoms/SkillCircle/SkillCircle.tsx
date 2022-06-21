@@ -3,7 +3,8 @@ import React from "react";
 import styled from "styled-components";
 
 interface SkillCircleProps {
-  StudyImg: string;
+  SkillImgSrc: string;
+  SkillName: string;
   Comprehension: number;
 }
 
@@ -24,7 +25,8 @@ const ReturnComprehensionColor = (Comprehension: number) => {
 };
 
 const SkillCircle: React.FC<SkillCircleProps> = ({
-  StudyImg,
+  SkillImgSrc,
+  SkillName,
   Comprehension,
 }) => {
   return (
@@ -38,7 +40,8 @@ const SkillCircle: React.FC<SkillCircleProps> = ({
           <div className="fill shim"></div>
         </div>
       </div>
-      <SkillImg className="cutout" src={StudyImg}></SkillImg>
+      <SkillImg className="cutout" src={SkillImgSrc}></SkillImg>
+      <SkillNameWrapper>{SkillName}</SkillNameWrapper>
     </CircleWrapper>
   );
 };
@@ -93,6 +96,16 @@ const CircleWrapper = styled.div<{ Comprehension: number }>`
     ${(props) =>
       `transform: rotate(calc((${props.Comprehension}/ 5) * 360deg));`}
   }
+`;
+
+const SkillNameWrapper = styled.p`
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  position: absolute;
+  bottom: -35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const SkillImg = styled.img`
