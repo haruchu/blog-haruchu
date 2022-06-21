@@ -14,6 +14,6 @@ export default {
 
 export const Basic = () => {
   return (
-    <SkillCircle StudyImg={HTMLImg} StudyName={"HTML"} Comprehension={4} />
+    <SkillCircle StudyImg={HTMLImg} Comprehension={4} />
   );
 };

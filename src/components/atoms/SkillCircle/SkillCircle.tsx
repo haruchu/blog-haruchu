@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 interface SkillCircleProps {
   StudyImg: string;
-  StudyName: string;
   Comprehension: number;
 }
 
@@ -46,7 +45,9 @@ export default SkillCircle;
 
 const CircleWrapper = styled.div<{ Comprehension: number }>`
   position: relative;
-
+  width: 220px;
+  height: 220px;
+  margin: 10px;
   .shape,
   .mask,
   .fill {
@@ -97,4 +98,6 @@ const SkillImg = styled.img`
   height: 190px;
   position: absolute;
   border-radius: 50%;
+  background-color: #ffffff;
+  object-fit: cover;
 `;
