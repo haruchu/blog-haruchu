@@ -10,48 +10,48 @@ import SQLImg from "../../assets/SQL.png";
 
 export const SkillLists = [
   {
-    StudyImg: HTMLImg,
-    StudyName: "HTML",
+    src: HTMLImg,
+    name: "HTML",
     Comprehension: 4,
   },
   {
-    StudyImg: CssImg,
-    StudyName: "CSS",
+    src: CssImg,
+    name: "CSS",
     Comprehension: 4,
   },
   {
-    StudyImg: JsImg,
-    StudyName: "Javascript",
+    src: JsImg,
+    name: "Javascript",
     Comprehension: 4,
   },
   {
-    StudyImg: ReactImg,
-    StudyName: "React",
+    src: ReactImg,
+    name: "React",
     Comprehension: 4,
   },
   {
-    StudyImg: TSImg,
-    StudyName: "Typescript",
+    src: TSImg,
+    name: "Typescript",
     Comprehension: 4,
   },
   {
-    StudyImg: FlutterImg,
-    StudyName: "Flutter",
+    src: FlutterImg,
+    name: "Flutter",
     Comprehension: 1,
   },
   {
-    StudyImg: DjangoImg,
-    StudyName: "Django",
+    src: DjangoImg,
+    name: "Django",
     Comprehension: 3,
   },
   {
-    StudyImg: RailsImg,
-    StudyName: "Rails",
+    src: RailsImg,
+    name: "Rails",
     Comprehension: 3,
   },
   {
-    StudyImg: SQLImg,
-    StudyName: "SQL",
+    src: SQLImg,
+    name: "SQL",
     Comprehension: 3,
   },
 ];

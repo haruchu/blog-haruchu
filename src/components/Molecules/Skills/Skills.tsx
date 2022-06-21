@@ -9,7 +9,8 @@ const Skills: React.FC = () => {
       {SkillLists.map((skill, index) => (
         <SkillCircle
           key={index}
-          StudyImg={skill.StudyImg}
+          SkillImgSrc={skill.src}
+          SkillName={skill.name}
           Comprehension={skill.Comprehension}
         />
       ))}
