@@ -4,27 +4,39 @@ import React from "react";
 import styled from "styled-components";
 
 const ProductPage: React.FC = () => {
+  const repositories = [
+    {
+      link: "https://github.com/haruchu/blog-haruchu",
+      imgLink: "https://gh-card.dev/repos/haruchu/blog-haruchu.png",
+      text: "このブログのリポジトリ"
+    },
+    {
+      link: "https://github.com/haruchu/sns-app",
+      imgLink: "https://gh-card.dev/repos/haruchu/sns-app.svg",
+      text: "Djangoを用いてSNSを作ってみた"
+    },
+    {
+      link: "https://github.com/haruchu/diary",
+      imgLink: "https://gh-card.dev/repos/haruchu/diary.svg",
+      text: "Djangoを用いて日記アプリを作ってみた"
+    },
+    {
+      link: "https://github.com/haruchu/pokedex",
+      imgLink: "https://gh-card.dev/repos/haruchu/pokedex.png",
+      text: "ポケモン図鑑を作ってみた"
+    }
+  ]
   return (
     <StyledWrapper>
       <h2>Product</h2>
-      <StyledProductArticle>
-        <StyledGithubLink href="https://github.com/haruchu/blog-haruchu">
-          <img src="https://gh-card.dev/repos/haruchu/blog-haruchu.png" />
-        </StyledGithubLink>
-        <p>このブログのリポジトリ</p>
-      </StyledProductArticle>
-      <StyledProductArticle>
-        <StyledGithubLink href="https://github.com/haruchu/sns-app">
-          <img src="https://gh-card.dev/repos/haruchu/sns-app.svg" />
-        </StyledGithubLink>
-        <p>Djangoを用いてSNSを作ってみた</p>
-      </StyledProductArticle>
-      <StyledProductArticle>
-        <StyledGithubLink href="https://github.com/haruchu/sns-app">
-          <img src="https://gh-card.dev/repos/haruchu/diary.svg" />
-        </StyledGithubLink>
-        <p>Djangoを用いて日記アプリを作ってみた</p>
-      </StyledProductArticle>
+      {repositories.map((repository, index) => (
+        <StyledProductArticle key={index}>
+          <StyledGithubLink href={repository.link}>
+            <img src={repository.imgLink} />
+          </StyledGithubLink>
+          <p>{repository.text}</p>
+        </StyledProductArticle>
+      ))}
     </StyledWrapper>
   );
 };
