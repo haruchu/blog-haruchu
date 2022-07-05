@@ -32,7 +32,7 @@ const StyledTwitterIcon = styled.a`
 `;
 
 export const TwitterIcon: React.FC = () => (
-  <StyledTwitterIcon href="https://twitter.com/nhp_haru">
+  <StyledTwitterIcon href="https://twitter.com/Turtwig618">
     <AiOutlineTwitter />
   </StyledTwitterIcon>
 );
