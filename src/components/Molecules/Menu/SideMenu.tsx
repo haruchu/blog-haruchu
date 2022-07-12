@@ -25,7 +25,7 @@ const SideMenu: React.FC = () => {
           <StyledImg src={ProfileIcon} />
         </StyledProfileIcon>
         <StyledProfileName className="profile-name">
-          Haruki Atarashi
+          Haru
         </StyledProfileName>
         <StyledSNSIcons className="sns-icons">
           <TwitterIcon />

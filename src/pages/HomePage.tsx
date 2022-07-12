@@ -12,7 +12,6 @@ const HomePage: React.FC = () => {
         <StyledProfileIcon src={ProfileIcon} />
         <StyledProfileTextWrapper>
           <StyledProfileName>Haru</StyledProfileName>
-          <StyledProfileFullName>Haruki Atarashi</StyledProfileFullName>
         </StyledProfileTextWrapper>
       </StyledProfileWrapper>
       <StyledSkillsWrapper>
@@ -54,12 +53,6 @@ const StyledProfileName = styled.b`
   font-size: 30px;
   ${phone`
     font-size: 16px;
-  `}
-`;
-
-const StyledProfileFullName = styled.span`
-  ${phone`
-    font-size: 8px;
   `}
 `;
 
